@@ -1,0 +1,18 @@
+<!--index.wxml-->
+<view class="container">
+  <view class="input-container">
+    <input placeholder='Please input title'/>
+    <button>Reset</button>
+    <button>Add</button>
+  </view>
+  <scroll-view class='list-container' scroll-y="true">
+    <template is="listItem" wx:for="{{[1, 2, 3]}}"/>
+  </scroll-view>
+</view>
+
+<template name="listItem">
+  <view class='list-item'>
+    <text>Title</text>
+    <button>Delete</button>
+  </view>
+</template>
