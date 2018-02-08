@@ -17,6 +17,7 @@
 		B4B53DEB202C02B400D9242F /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = B4B53DEA202C02B400D9242F /* main.m */; };
 		B4B53DF5202C02B400D9242F /* BWToDoListTests.m in Sources */ = {isa = PBXBuildFile; fileRef = B4B53DF4202C02B400D9242F /* BWToDoListTests.m */; };
 		B4B53E00202C02B400D9242F /* BWToDoListUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = B4B53DFF202C02B400D9242F /* BWToDoListUITests.m */; };
+		B4B53E4C202C052200D9242F /* Design0.xib in Resources */ = {isa = PBXBuildFile; fileRef = B4B53E4B202C052200D9242F /* Design0.xib */; };
 		CECB467622A663F9E8AF7E01 /* libPods-BWToDoListTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 0C265202B38167CE3510AD00 /* libPods-BWToDoListTests.a */; };
 /* End PBXBuildFile section */
 
@@ -62,6 +63,7 @@
 		B4B53DFB202C02B400D9242F /* BWToDoListUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = BWToDoListUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		B4B53DFF202C02B400D9242F /* BWToDoListUITests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BWToDoListUITests.m; sourceTree = "<group>"; };
 		B4B53E01202C02B400D9242F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		B4B53E4B202C052200D9242F /* Design0.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = Design0.xib; sourceTree = "<group>"; };
 		CB60D03CA223880C3089F6E9 /* Pods-BWToDoListTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BWToDoListTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-BWToDoListTests/Pods-BWToDoListTests.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -133,10 +135,9 @@
 				B4B53DDE202C02B400D9242F /* ViewController.h */,
 				B4B53DDF202C02B400D9242F /* ViewController.m */,
 				B4B53DE1202C02B400D9242F /* Main.storyboard */,
+				B4B53E47202C049E00D9242F /* Design */,
 				B4B53DE4202C02B400D9242F /* Assets.xcassets */,
-				B4B53DE6202C02B400D9242F /* LaunchScreen.storyboard */,
-				B4B53DE9202C02B400D9242F /* Info.plist */,
-				B4B53DEA202C02B400D9242F /* main.m */,
+				B4B53E49202C04CB00D9242F /* Supporting Files */,
 			);
 			path = BWToDoList;
 			sourceTree = "<group>";
@@ -157,6 +158,32 @@
 				B4B53E01202C02B400D9242F /* Info.plist */,
 			);
 			path = BWToDoListUITests;
+			sourceTree = "<group>";
+		};
+		B4B53E47202C049E00D9242F /* Design */ = {
+			isa = PBXGroup;
+			children = (
+				B4B53E4A202C050100D9242F /* UI */,
+			);
+			path = Design;
+			sourceTree = "<group>";
+		};
+		B4B53E49202C04CB00D9242F /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				B4B53DEA202C02B400D9242F /* main.m */,
+				B4B53DE9202C02B400D9242F /* Info.plist */,
+				B4B53DE6202C02B400D9242F /* LaunchScreen.storyboard */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		B4B53E4A202C050100D9242F /* UI */ = {
+			isa = PBXGroup;
+			children = (
+				B4B53E4B202C052200D9242F /* Design0.xib */,
+			);
+			path = UI;
 			sourceTree = "<group>";
 		};
 		C64A9ED1B84E236CD7FA421B /* Pods */ = {
@@ -289,6 +316,7 @@
 			files = (
 				B4B53DE8202C02B400D9242F /* LaunchScreen.storyboard in Resources */,
 				B4B53DE5202C02B400D9242F /* Assets.xcassets in Resources */,
+				B4B53E4C202C052200D9242F /* Design0.xib in Resources */,
 				B4B53DE3202C02B400D9242F /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
