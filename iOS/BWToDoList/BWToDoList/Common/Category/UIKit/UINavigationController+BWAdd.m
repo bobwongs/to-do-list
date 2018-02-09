@@ -13,8 +13,14 @@
 + (instancetype)bw_defaultStyleWithRootViewController:(UIViewController *)rootViewController {
     UINavigationController *navigationController = [[UINavigationController alloc] initWithRootViewController:rootViewController];
     UINavigationBar *navigationBar = navigationController.navigationBar;
+    
     navigationBar.tintColor = [UIColor whiteColor];
     navigationBar.barTintColor = [UIColor colorWithRed:42.0/255.0 green:40.0/255.0 blue:46.0/255.0 alpha:1.0];
+    
+    NSMutableDictionary *attribute = [NSMutableDictionary new];
+    attribute[NSForegroundColorAttributeName] = [UIColor whiteColor];
+    navigationBar.titleTextAttributes = attribute;
+    
     return navigationController;
 }
 
