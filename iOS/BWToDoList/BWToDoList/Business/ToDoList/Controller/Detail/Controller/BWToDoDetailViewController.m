@@ -7,31 +7,53 @@
 //
 
 #import "BWToDoDetailViewController.h"
+#import "BWCoreDataManager.h"
 
 @interface BWToDoDetailViewController ()
+
+@property (weak, nonatomic) IBOutlet UITextField *titleTextField;
+@property (weak, nonatomic) IBOutlet UITextField *contentTextField;
 
 @end
 
 @implementation BWToDoDetailViewController
 
+#pragma mark - Life Cycle
+
 - (void)viewDidLoad {
     [super viewDidLoad];
-    // Do any additional setup after loading the view from its nib.
+    self.title = @"To Do Item";
+    [self setupNavigationUI];
 }
 
-- (void)didReceiveMemoryWarning {
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
+#pragma mark - Action
+
+- (void)cancelAction {
+    [self.navigationController dismissViewControllerAnimated:YES completion:nil];
 }
 
-/*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
+- (void)doneAction {
+    NSString *title = self.titleTextField.text;
+    NSString *content = self.contentTextField.text;
+    
+    BWToDoItem *item = [BWToDoItem new];
+    item.title = title;
+    item.content = content;
+    if (![[BWCoreDataManager sharedManager] insert:item]) {  // 插入失败
+        return;
+    }
+    if (self.addedBlock) self.addedBlock(item);
+    [self.navigationController dismissViewControllerAnimated:YES completion:nil];
 }
-*/
+
+#pragma mark - Private Method
+
+- (void)setupNavigationUI {
+    UIBarButtonItem *leftItem = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemCancel target:self action:@selector(cancelAction)];
+    self.navigationItem.leftBarButtonItem = leftItem;
+    
+    UIBarButtonItem *rightItem = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemDone target:self action:@selector(doneAction)];
+    self.navigationItem.rightBarButtonItem = rightItem;
+}
 
 @end

@@ -7,9 +7,11 @@
 //
 
 #import "BWBaseViewController.h"
+#import "BWToDoItem.h"
 
 @interface BWToDoDetailViewController : BWBaseViewController
 
-@property (strong, nonatomic) NSString *itemId;
+@property (copy, nonatomic) void(^addedBlock)(BWToDoItem *item);  ///< Added
+@property (copy, nonatomic) void(^modificationBlock)(BWToDoItem *item);  ///< Modification
 
 @end

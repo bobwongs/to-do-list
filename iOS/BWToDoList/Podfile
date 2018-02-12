@@ -6,14 +6,14 @@ target 'BWToDoList' do
   pod 'SDWebImage', '4.2.3'
   pod 'YTKNetwork', '2.0.4'
 
-  target 'BWToDoListTests' do
-    inherit! :search_paths
-    # Pods for testing
-  end
-
-  target 'BWToDoListUITests' do
-    inherit! :search_paths
-    # Pods for testing
-  end
+#  target 'BWToDoListTests' do
+#    inherit! :search_paths
+#    # Pods for testing
+#  end
+#
+#  target 'BWToDoListUITests' do
+#    inherit! :search_paths
+#    # Pods for testing
+#  end
 
 end

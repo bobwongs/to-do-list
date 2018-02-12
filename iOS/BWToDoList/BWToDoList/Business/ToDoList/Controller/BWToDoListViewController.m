@@ -9,17 +9,17 @@
 #import "BWToDoListViewController.h"
 #import "BWToDoListCell.h"
 #import "BWToDoDetailViewController.h"
+#import "BWCoreDataManager.h"
 
 NSString *const BWToDoListCellId = @"BWToDoListCellId";
 
 @interface BWToDoListViewController () <UITableViewDataSource, UITableViewDelegate>
 
 /* UI */
-@property (weak, nonatomic) IBOutlet UITextField *inputTextField;
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
 
 /* Data */
-@property (strong, nonatomic) NSMutableArray<NSString *> *dataSource;
+@property (strong, nonatomic) NSMutableArray<BWToDoItem *> *dataSource;
 
 @end
 
@@ -36,25 +36,30 @@ NSString *const BWToDoListCellId = @"BWToDoListCellId";
 
 #pragma mark - Action
 
-- (IBAction)addAction:(UIButton *)sender {
-    NSString *text = self.inputTextField.text;
-    if (text.length == 0) return;
-    
-    [self.dataSource addObject:text];
-    NSIndexPath *indexPath = [NSIndexPath indexPathForRow:self.dataSource.count - 1 inSection:0];
-    [self.tableView insertRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationTop];  // Insert animation instead of reloadData.
+- (void)addAction {
+    BWToDoDetailViewController *detailViewController = [BWToDoDetailViewController new];
+    __weak typeof(self) weakSelf = self;
+    detailViewController.addedBlock = ^(BWToDoItem *item) {
+        __strong typeof(weakSelf) strongSelf = weakSelf;
+        [strongSelf addItem:item];
+    };
+    [self.navigationController pushViewController:detailViewController animated:YES];
 }
 
 #pragma mark - TableView Data Source and Delegate
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    return _dataSource ? _dataSource.count : 0;
+    return self.dataSource ? self.dataSource.count : 0;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     BWToDoListCell *cell = [tableView dequeueReusableCellWithIdentifier:BWToDoListCellId];
     NSInteger row = indexPath.row;
-    cell.titleLabel.text = _dataSource[row];
+    
+    BWToDoItem *item = self.dataSource[row];
+    cell.titleLabel.text = item.title;
+    
+    
     return cell;
 }
 
@@ -79,11 +84,24 @@ NSString *const BWToDoListCellId = @"BWToDoListCellId";
 #pragma mark - Private Method
 
 - (void)setupData {
-    _dataSource = [NSMutableArray new];
+    NSArray<BWToDoItem *> *allItems = [[BWCoreDataManager sharedManager] fetchAllItems];
+    self.dataSource = [NSMutableArray arrayWithArray:allItems];
+}
+
+- (void)setupNavigationUI {
+    UIBarButtonItem *rightItem = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemAdd target:self action:@selector(addAction)];
+    self.navigationItem.rightBarButtonItem = rightItem;
 }
 
 - (void)setupUI {
     [self.tableView registerNib:[UINib nibWithNibName:NSStringFromClass([BWToDoListCell class]) bundle:nil] forCellReuseIdentifier:BWToDoListCellId];
+}
+
+- (void)addItem:(BWToDoItem *)item {
+    [self.dataSource addObject:item];
+
+    NSIndexPath *indexPath = [NSIndexPath indexPathForRow:self.dataSource.count - 1 inSection:0];
+    [self.tableView insertRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationTop];
 }
 
 @end
