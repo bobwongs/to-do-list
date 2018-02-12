@@ -10,6 +10,7 @@
 #import "BWToDoListCell.h"
 #import "BWToDoDetailViewController.h"
 #import "BWCoreDataManager.h"
+#import "UINavigationController+BWAdd.h"
 
 NSString *const BWToDoListCellId = @"BWToDoListCellId";
 
@@ -31,6 +32,7 @@ NSString *const BWToDoListCellId = @"BWToDoListCellId";
     [super viewDidLoad];
     self.title = @"To Do List";
     [self setupData];
+    [self setupNavigationUI];
     [self setupUI];
 }
 
@@ -43,7 +45,8 @@ NSString *const BWToDoListCellId = @"BWToDoListCellId";
         __strong typeof(weakSelf) strongSelf = weakSelf;
         [strongSelf addItem:item];
     };
-    [self.navigationController pushViewController:detailViewController animated:YES];
+    UINavigationController *detailNavigationController = [UINavigationController bw_defaultStyleWithRootViewController:detailViewController];
+    [self presentViewController:detailNavigationController animated:YES completion:nil];
 }
 
 #pragma mark - TableView Data Source and Delegate

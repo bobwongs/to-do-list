@@ -48,15 +48,15 @@
     return persons;
 }
 
-- (BOOL)insert:(BWToDoItem *)item {
-    if (!item) {
-        NSLog(@"CoreData insert error: nil item");
+- (BOOL)insertWithTitle:(NSString *)title content:(NSString *)content {
+    if (!title) {
+        NSLog(@"CoreData insert error: no title");
         return NO;
     }
     
     BWToDoItem *newItem =[NSEntityDescription insertNewObjectForEntityForName:@"ToDoItem" inManagedObjectContext:self.context];
-    newItem.title = item.title;
-    newItem.content = item.content;
+    newItem.title = title;
+    if (content) newItem.content = content;
     
     NSError *error = nil;
     [self.context save:&error];
@@ -118,7 +118,7 @@
     // 创建并关联SQLite数据库文件，如果已经存在则不会重复创建
     NSString *dataPath = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES).lastObject;
     NSLog(@"dataPath: %@", dataPath);
-    dataPath = [dataPath stringByAppendingFormat:@"/CoreData/%@.sqlite", @"Person"];
+    dataPath = [dataPath stringByAppendingFormat:@"/%@.sqlite", @"Person"];
     [coordinator addPersistentStoreWithType:NSSQLiteStoreType configuration:nil URL:[NSURL fileURLWithPath:dataPath] options:nil error:nil];
     
     // 上下文对象设置属性为持久化存储器

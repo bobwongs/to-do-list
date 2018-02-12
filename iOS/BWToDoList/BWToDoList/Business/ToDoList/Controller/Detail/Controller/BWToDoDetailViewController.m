@@ -29,17 +29,14 @@
 #pragma mark - Action
 
 - (void)cancelAction {
-    [self.navigationController dismissViewControllerAnimated:YES completion:nil];
+    [self dismissViewControllerAnimated:YES completion:nil];
 }
 
 - (void)doneAction {
     NSString *title = self.titleTextField.text;
     NSString *content = self.contentTextField.text;
     
-    BWToDoItem *item = [BWToDoItem new];
-    item.title = title;
-    item.content = content;
-    if (![[BWCoreDataManager sharedManager] insert:item]) {  // 插入失败
+    if (![[BWCoreDataManager sharedManager] insertWithTitle:title content:content]) {  // 插入失败
         return;
     }
     if (self.addedBlock) self.addedBlock(item);

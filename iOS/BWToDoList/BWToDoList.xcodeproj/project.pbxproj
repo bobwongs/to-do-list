@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		901A33CA57543C97B82114B6 /* libPods-BWToDoList.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 268B1D5730A496129A993DE8 /* libPods-BWToDoList.a */; };
+		B4A8A5D7203183B5003AE144 /* ToDoRecord.md in Resources */ = {isa = PBXBuildFile; fileRef = B4A8A5D6203183B5003AE144 /* ToDoRecord.md */; };
 		B4AD9023202D54D1000F1EB0 /* BWBaseViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B4AD9022202D54D1000F1EB0 /* BWBaseViewController.m */; };
 		B4AD9026202D54ED000F1EB0 /* BWToDoListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B4AD9025202D54ED000F1EB0 /* BWToDoListViewController.m */; };
 		B4AD902D202D6A9B000F1EB0 /* UINavigationController+BWAdd.m in Sources */ = {isa = PBXBuildFile; fileRef = B4AD902C202D6A9B000F1EB0 /* UINavigationController+BWAdd.m */; };
@@ -56,6 +57,7 @@
 		55646A33B6E45443DA025042 /* libPods-BWToDoListUITests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-BWToDoListUITests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		A25AFF590B9EE6EA282ACBB7 /* Pods-BWToDoList.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BWToDoList.release.xcconfig"; path = "Pods/Target Support Files/Pods-BWToDoList/Pods-BWToDoList.release.xcconfig"; sourceTree = "<group>"; };
 		A6C52411FC9A586487F742D2 /* Pods-BWToDoList.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BWToDoList.debug.xcconfig"; path = "Pods/Target Support Files/Pods-BWToDoList/Pods-BWToDoList.debug.xcconfig"; sourceTree = "<group>"; };
+		B4A8A5D6203183B5003AE144 /* ToDoRecord.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = ToDoRecord.md; sourceTree = "<group>"; };
 		B4AD9021202D54D1000F1EB0 /* BWBaseViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BWBaseViewController.h; sourceTree = "<group>"; };
 		B4AD9022202D54D1000F1EB0 /* BWBaseViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BWBaseViewController.m; sourceTree = "<group>"; };
 		B4AD9024202D54ED000F1EB0 /* BWToDoListViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BWToDoListViewController.h; sourceTree = "<group>"; };
@@ -282,6 +284,7 @@
 			isa = PBXGroup;
 			children = (
 				B4AD9044202D8A49000F1EB0 /* Document.md */,
+				B4A8A5D6203183B5003AE144 /* ToDoRecord.md */,
 			);
 			path = Document;
 			sourceTree = "<group>";
@@ -581,6 +584,7 @@
 				B4AD9034202D6E08000F1EB0 /* BWToDoListViewController.xib in Resources */,
 				B4AD9042202D79D1000F1EB0 /* BWToDoListCell.xib in Resources */,
 				B4AD9039202D6E78000F1EB0 /* BWMeViewController.xib in Resources */,
+				B4A8A5D7203183B5003AE144 /* ToDoRecord.md in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
