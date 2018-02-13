@@ -19,4 +19,8 @@
     self.edgesForExtendedLayout = UIRectEdgeNone;
 }
 
+- (void)dealloc {
+    NSLog(@"Dealloc %@", NSStringFromClass([self class]));
+}
+
 @end

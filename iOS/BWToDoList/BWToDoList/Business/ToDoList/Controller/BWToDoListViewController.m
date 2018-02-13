@@ -45,6 +45,9 @@ NSString *const BWToDoListCellId = @"BWToDoListCellId";
         __strong typeof(weakSelf) strongSelf = weakSelf;
         [strongSelf addItem:item];
     };
+    detailViewController.modificationBlock = ^(BWToDoItem *item) {
+        __strong typeof(weakSelf) strongSelf = weakSelf;
+    };
     UINavigationController *detailNavigationController = [UINavigationController bw_defaultStyleWithRootViewController:detailViewController];
     [self presentViewController:detailNavigationController animated:YES completion:nil];
 }
@@ -61,7 +64,7 @@ NSString *const BWToDoListCellId = @"BWToDoListCellId";
     
     BWToDoItem *item = self.dataSource[row];
     cell.titleLabel.text = item.title;
-    
+    cell.contentLabel.text = item.content;
     
     return cell;
 }
@@ -74,7 +77,7 @@ NSString *const BWToDoListCellId = @"BWToDoListCellId";
 
 - (NSArray<UITableViewRowAction *> *)tableView:(UITableView *)tableView editActionsForRowAtIndexPath:(NSIndexPath *)indexPath {
     UITableViewRowAction *deleteAction = [UITableViewRowAction rowActionWithStyle:UITableViewRowActionStyleDestructive title:@"Delete" handler:^(UITableViewRowAction * _Nonnull action, NSIndexPath * _Nonnull indexPath) {
-        [self.dataSource removeObjectAtIndex:indexPath.row];
+        [self deleteItemInIndexPath:indexPath];
         [tableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationBottom];
     }];
     UITableViewRowAction *shareAction = [UITableViewRowAction rowActionWithStyle:UITableViewRowActionStyleDefault title:@"Share" handler:^(UITableViewRowAction * _Nonnull action, NSIndexPath * _Nonnull indexPath) {
@@ -105,6 +108,12 @@ NSString *const BWToDoListCellId = @"BWToDoListCellId";
 
     NSIndexPath *indexPath = [NSIndexPath indexPathForRow:self.dataSource.count - 1 inSection:0];
     [self.tableView insertRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationTop];
+}
+
+- (void)deleteItemInIndexPath:(NSIndexPath *)indexPath {
+    BWToDoItem *item = self.dataSource[indexPath.row];
+    [[BWCoreDataManager sharedManager] remove:item];
+    [self.dataSource removeObjectAtIndex:indexPath.row];
 }
 
 @end

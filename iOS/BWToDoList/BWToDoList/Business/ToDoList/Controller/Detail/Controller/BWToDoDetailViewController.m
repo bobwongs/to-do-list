@@ -36,11 +36,23 @@
     NSString *title = self.titleTextField.text;
     NSString *content = self.contentTextField.text;
     
-    if (![[BWCoreDataManager sharedManager] insertWithTitle:title content:content]) {  // 插入失败
+    // Modified.
+    if (self.item) {
+        if (![self.item.title isEqualToString:title]) self.item.title = title;
+        if (![self.item.content isEqualToString:content]) self.item.content = content;
+        [[BWCoreDataManager sharedManager] save];
+        if (self.modificationBlock) self.modificationBlock(self.item);
+        [self dismissViewControllerAnimated:YES completion:nil];
+        return;
+    }
+    
+    // New added.
+    BWToDoItem *item = [[BWCoreDataManager sharedManager] insertWithTitle:title content:content];
+    if (!item) {  // 插入失败
         return;
     }
     if (self.addedBlock) self.addedBlock(item);
-    [self.navigationController dismissViewControllerAnimated:YES completion:nil];
+    [self dismissViewControllerAnimated:YES completion:nil];
 }
 
 #pragma mark - Private Method

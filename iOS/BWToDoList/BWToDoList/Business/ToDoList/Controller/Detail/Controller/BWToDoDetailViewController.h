@@ -11,6 +11,8 @@
 
 @interface BWToDoDetailViewController : BWBaseViewController
 
+@property (strong, nonatomic) BWToDoItem *item;
+
 @property (copy, nonatomic) void(^addedBlock)(BWToDoItem *item);  ///< Added
 @property (copy, nonatomic) void(^modificationBlock)(BWToDoItem *item);  ///< Modification
 

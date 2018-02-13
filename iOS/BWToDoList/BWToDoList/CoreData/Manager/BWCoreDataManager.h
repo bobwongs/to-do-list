@@ -14,8 +14,9 @@
 + (instancetype)sharedManager;
 
 - (NSArray<BWToDoItem *> *)fetchAllItems;
-- (BOOL)insertWithTitle:(NSString *)title content:(NSString *)content;
+- (BWToDoItem *)insertWithTitle:(NSString *)title content:(NSString *)content;
 - (BOOL)remove:(BWToDoItem *)item;
 - (BOOL)modify:(BWToDoItem *)item;
+- (BOOL)save;
 
 @end

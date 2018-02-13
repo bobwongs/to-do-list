@@ -48,10 +48,10 @@
     return persons;
 }
 
-- (BOOL)insertWithTitle:(NSString *)title content:(NSString *)content {
+- (BWToDoItem *)insertWithTitle:(NSString *)title content:(NSString *)content {
     if (!title) {
         NSLog(@"CoreData insert error: no title");
-        return NO;
+        return nil;
     }
     
     BWToDoItem *newItem =[NSEntityDescription insertNewObjectForEntityForName:@"ToDoItem" inManagedObjectContext:self.context];
@@ -62,10 +62,10 @@
     [self.context save:&error];
     if (error) {
         NSLog(@"CoreData insert error: %@", error);
-        return NO;
+        return nil;
     }
     NSLog(@"CoreData has insert item");
-    return YES;
+    return newItem;
 }
 
 - (BOOL)remove:(BWToDoItem *)item {
@@ -98,6 +98,15 @@
         return NO;
     }
     NSLog(@"CoreData has modified item!");
+    return YES;
+}
+
+- (BOOL)save {
+    if (self.context.hasChanges) {
+        NSError *error = nil;
+        [self.context save:&error];
+        return error ? NO : YES;
+    }
     return YES;
 }
 
