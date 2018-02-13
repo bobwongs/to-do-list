@@ -1,12 +1,14 @@
 
 ToDoListv1.0.0
-    1、列表删除功能；
-    2、存储功能（CoreData/Sqlite）；
-    3、查看To Do详情功能；
+    1、列表删除功能（Done）
+    2、存储功能
+        CoreData（Done）
+        Sqlite
+    3、查看To Do详情功能（Done）
+    4、搜索功能；
     
 ToDoListv1.1.0
-    1、搜索功能；
-    2、To Do样式增加
+    1、To Do样式增加
         标题、详情、提醒时间等等
 
 ToDoListv1.1.1

@@ -24,12 +24,13 @@
     [super viewDidLoad];
     self.title = @"To Do Item";
     [self setupNavigationUI];
+    [self setupUIData];
 }
 
 #pragma mark - Action
 
 - (void)cancelAction {
-    [self dismissViewControllerAnimated:YES completion:nil];
+    [self dismissVC];
 }
 
 - (void)doneAction {
@@ -42,7 +43,7 @@
         if (![self.item.content isEqualToString:content]) self.item.content = content;
         [[BWCoreDataManager sharedManager] save];
         if (self.modificationBlock) self.modificationBlock(self.item);
-        [self dismissViewControllerAnimated:YES completion:nil];
+        [self dismissVC];
         return;
     }
     
@@ -52,17 +53,34 @@
         return;
     }
     if (self.addedBlock) self.addedBlock(item);
-    [self dismissViewControllerAnimated:YES completion:nil];
+    [self dismissVC];
 }
 
 #pragma mark - Private Method
 
 - (void)setupNavigationUI {
-    UIBarButtonItem *leftItem = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemCancel target:self action:@selector(cancelAction)];
-    self.navigationItem.leftBarButtonItem = leftItem;
+    if (!self.item) {
+        UIBarButtonItem *leftItem = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemCancel target:self action:@selector(cancelAction)];
+        self.navigationItem.leftBarButtonItem = leftItem;
+    }
     
     UIBarButtonItem *rightItem = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemDone target:self action:@selector(doneAction)];
     self.navigationItem.rightBarButtonItem = rightItem;
+}
+
+- (void)setupUIData {
+    if (self.item) {
+        self.titleTextField.text = self.item.title;
+        self.contentTextField.text = self.item.content;
+    }
+}
+
+- (void)dismissVC {
+    if (self.navigationController.viewControllers.count > 1) {
+        [self.navigationController popViewControllerAnimated:YES];
+        return;
+    }
+    [self dismissViewControllerAnimated:YES completion:nil];
 }
 
 @end

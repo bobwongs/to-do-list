@@ -1,4 +1,8 @@
 
-
 CoreData
-    1、如何更方便地对很多字段的Entity进行插入、编辑操作，当前是逐个字段进行操作，而不是整合到一个模型类上；
+    CoreData Entity类的管理优化
+        调整为使用Xcode生成的Category
+    
+    沙盒中生成文件目录的修改
+        又原来的“Sandbox/Document/”下调整为“Sandbox/Document/CoreData”
+        

@@ -11,6 +11,7 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="BWToDoListViewController">
             <connections>
+                <outlet property="searchDisplayController" destination="mVb-TP-Lm1" id="3ne-jk-x1L"/>
                 <outlet property="tableView" destination="HC2-4l-OgA" id="fEV-Sd-TjM"/>
                 <outlet property="view" destination="iN0-l3-epB" id="akr-21-SAo"/>
             </connections>
@@ -21,21 +22,41 @@
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
                 <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="HC2-4l-OgA">
-                    <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                    <rect key="frame" x="0.0" y="56" width="375" height="611"/>
                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     <connections>
                         <outlet property="dataSource" destination="-1" id="YaT-4T-qWz"/>
                         <outlet property="delegate" destination="-1" id="SX9-HQ-GIE"/>
                     </connections>
                 </tableView>
+                <searchBar contentMode="redraw" translatesAutoresizingMaskIntoConstraints="NO" id="UJm-J8-IGD">
+                    <rect key="frame" x="0.0" y="0.0" width="375" height="56"/>
+                    <textInputTraits key="textInputTraits"/>
+                    <connections>
+                        <outlet property="delegate" destination="-1" id="5fl-jQ-8hf"/>
+                    </connections>
+                </searchBar>
             </subviews>
             <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
             <constraints>
                 <constraint firstItem="HC2-4l-OgA" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="04w-sH-Uri"/>
-                <constraint firstItem="HC2-4l-OgA" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" id="80I-jH-7le"/>
+                <constraint firstItem="UJm-J8-IGD" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="7oH-5W-MdF"/>
                 <constraint firstAttribute="bottom" secondItem="HC2-4l-OgA" secondAttribute="bottom" id="EjG-F1-2Lg"/>
                 <constraint firstAttribute="trailing" secondItem="HC2-4l-OgA" secondAttribute="trailing" id="ML7-Rg-uSx"/>
+                <constraint firstAttribute="trailing" secondItem="UJm-J8-IGD" secondAttribute="trailing" id="QaN-2C-S4n"/>
+                <constraint firstItem="UJm-J8-IGD" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" id="Zt8-Tt-OYj"/>
+                <constraint firstItem="HC2-4l-OgA" firstAttribute="top" secondItem="UJm-J8-IGD" secondAttribute="bottom" id="eNt-bj-yKk"/>
             </constraints>
+            <point key="canvasLocation" x="33.5" y="53.5"/>
         </view>
+        <searchDisplayController id="mVb-TP-Lm1">
+            <connections>
+                <outlet property="delegate" destination="-1" id="wgJ-N5-Wqi"/>
+                <outlet property="searchBar" destination="UJm-J8-IGD" id="Wmw-4z-aUA"/>
+                <outlet property="searchContentsController" destination="-1" id="EUd-EH-yJk"/>
+                <outlet property="searchResultsDataSource" destination="-1" id="Cn7-fk-Auq"/>
+                <outlet property="searchResultsDelegate" destination="-1" id="6Gj-bf-uUV"/>
+            </connections>
+        </searchDisplayController>
     </objects>
 </document>

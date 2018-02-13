@@ -14,7 +14,7 @@
 
 NSString *const BWToDoListCellId = @"BWToDoListCellId";
 
-@interface BWToDoListViewController () <UITableViewDataSource, UITableViewDelegate>
+@interface BWToDoListViewController () <UITableViewDataSource, UITableViewDelegate, UISearchControllerDelegate>
 
 /* UI */
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
@@ -45,9 +45,6 @@ NSString *const BWToDoListCellId = @"BWToDoListCellId";
         __strong typeof(weakSelf) strongSelf = weakSelf;
         [strongSelf addItem:item];
     };
-    detailViewController.modificationBlock = ^(BWToDoItem *item) {
-        __strong typeof(weakSelf) strongSelf = weakSelf;
-    };
     UINavigationController *detailNavigationController = [UINavigationController bw_defaultStyleWithRootViewController:detailViewController];
     [self presentViewController:detailNavigationController animated:YES completion:nil];
 }
@@ -71,7 +68,14 @@ NSString *const BWToDoListCellId = @"BWToDoListCellId";
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     [tableView deselectRowAtIndexPath:indexPath animated:NO];
+    BWToDoItem *item = self.dataSource[indexPath.row];
     BWToDoDetailViewController *detailVC = [BWToDoDetailViewController new];
+    detailVC.item = item;
+    __weak typeof(self) weakSelf = self;
+    detailVC.modificationBlock = ^(BWToDoItem *item) {
+        __strong typeof(weakSelf) strongSelf = weakSelf;
+        [strongSelf.tableView reloadData];
+    };
     [self.navigationController pushViewController:detailVC animated:YES];
 }
 
