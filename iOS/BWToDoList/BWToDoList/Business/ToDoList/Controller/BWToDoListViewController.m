@@ -11,6 +11,7 @@
 #import "BWToDoDetailViewController.h"
 #import "BWCoreDataManager.h"
 #import "UINavigationController+BWAdd.h"
+#import "BWToDoListSearchResultViewController.h"
 
 NSString *const BWToDoListCellId = @"BWToDoListCellId";
 
@@ -21,6 +22,9 @@ NSString *const BWToDoListCellId = @"BWToDoListCellId";
 
 /* Data */
 @property (strong, nonatomic) NSMutableArray<BWToDoItem *> *dataSource;
+
+@property (strong, nonatomic) UISearchController *searchController;
+@property (strong, nonatomic) BWToDoListSearchResultViewController *resultController;
 
 @end
 
@@ -104,6 +108,8 @@ NSString *const BWToDoListCellId = @"BWToDoListCellId";
 }
 
 - (void)setupUI {
+    
+    
     [self.tableView registerNib:[UINib nibWithNibName:NSStringFromClass([BWToDoListCell class]) bundle:nil] forCellReuseIdentifier:BWToDoListCellId];
 }
 
@@ -119,5 +125,9 @@ NSString *const BWToDoListCellId = @"BWToDoListCellId";
     [[BWCoreDataManager sharedManager] remove:item];
     [self.dataSource removeObjectAtIndex:indexPath.row];
 }
+
+#pragma mark - Setter and Getter
+
+
 
 @end
