@@ -15,7 +15,7 @@
 
 NSString *const BWToDoListCellId = @"BWToDoListCellId";
 
-@interface BWToDoListViewController () <UITableViewDataSource, UITableViewDelegate, UISearchControllerDelegate>
+@interface BWToDoListViewController () <UITableViewDataSource, UITableViewDelegate, UISearchResultsUpdating>
 
 /* UI */
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
@@ -73,14 +73,7 @@ NSString *const BWToDoListCellId = @"BWToDoListCellId";
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     [tableView deselectRowAtIndexPath:indexPath animated:NO];
     BWToDoItem *item = self.dataSource[indexPath.row];
-    BWToDoDetailViewController *detailVC = [BWToDoDetailViewController new];
-    detailVC.item = item;
-    __weak typeof(self) weakSelf = self;
-    detailVC.modificationBlock = ^(BWToDoItem *item) {
-        __strong typeof(weakSelf) strongSelf = weakSelf;
-        [strongSelf.tableView reloadData];
-    };
-    [self.navigationController pushViewController:detailVC animated:YES];
+    [self pushToDetail:item];
 }
 
 - (NSArray<UITableViewRowAction *> *)tableView:(UITableView *)tableView editActionsForRowAtIndexPath:(NSIndexPath *)indexPath {
@@ -93,6 +86,19 @@ NSString *const BWToDoListCellId = @"BWToDoListCellId";
         NSLog(@"share indexPath.row: %ld, message: %@", (long)row, self.dataSource[row]);
     }];
     return @[deleteAction, shareAction];
+}
+
+#pragma mark - UISearchResultsUpdating
+
+- (void)updateSearchResultsForSearchController:(UISearchController *)searchController {
+    NSString *text = searchController.searchBar.text;
+    NSMutableArray<BWToDoItem *> *arrayM = [NSMutableArray new];
+    [self.dataSource enumerateObjectsUsingBlock:^(BWToDoItem * _Nonnull item, NSUInteger idx, BOOL * _Nonnull stop) {
+        if ([item.title containsString:text]) {
+            [arrayM addObject:item];
+        }
+    }];
+    self.resultController.dataSource = arrayM;
 }
 
 #pragma mark - Private Method
@@ -108,7 +114,20 @@ NSString *const BWToDoListCellId = @"BWToDoListCellId";
 }
 
 - (void)setupUI {
+    BWToDoListSearchResultViewController *resultController = [BWToDoListSearchResultViewController new];
+    self.resultController = resultController;
+    __weak typeof(self) weakSelf = self;
+    resultController.didSelectBlock = ^(BWToDoItem *item) {
+        __strong typeof(weakSelf) strongSelf = weakSelf;
+        strongSelf.searchController.active = NO;
+        [strongSelf pushToDetail:item];
+    };
     
+    UISearchController *searchController = [[UISearchController alloc] initWithSearchResultsController:resultController];
+    self.searchController = searchController;
+    searchController.searchResultsUpdater = self;
+    searchController.dimsBackgroundDuringPresentation = NO;
+    self.tableView.tableHeaderView = self.searchController.searchBar;
     
     [self.tableView registerNib:[UINib nibWithNibName:NSStringFromClass([BWToDoListCell class]) bundle:nil] forCellReuseIdentifier:BWToDoListCellId];
 }
@@ -126,8 +145,34 @@ NSString *const BWToDoListCellId = @"BWToDoListCellId";
     [self.dataSource removeObjectAtIndex:indexPath.row];
 }
 
+- (void)pushToDetail:(BWToDoItem *)item {
+    BWToDoDetailViewController *detailVC = [BWToDoDetailViewController new];
+    detailVC.item = item;
+    __weak typeof(self) weakSelf = self;
+    detailVC.modificationBlock = ^(BWToDoItem *item) {
+        __strong typeof(weakSelf) strongSelf = weakSelf;
+        [strongSelf.tableView reloadData];
+    };
+    [self.navigationController pushViewController:detailVC animated:YES];
+}
+
 #pragma mark - Setter and Getter
 
+#pragma mark - Status Bar研究
 
+// Override
+- (UIStatusBarStyle)preferredStatusBarStyle {
+    return UIStatusBarStyleDefault;
+}
+
+//- (void)viewDidAppear:(BOOL)animated {
+//    [super viewDidAppear:animated];
+//    [UIApplication sharedApplication].statusBarStyle = UIStatusBarStyleDefault;
+//}
+//
+//- (void)viewDidDisappear:(BOOL)animated {
+//    [super viewDidDisappear:animated];
+//    [UIApplication sharedApplication].statusBarStyle = UIStatusBarStyleLightContent;
+//}
 
 @end

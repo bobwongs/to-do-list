@@ -7,7 +7,11 @@
 //
 
 #import "BWBaseViewController.h"
+@class BWToDoItem;
 
 @interface BWToDoListSearchResultViewController : BWBaseViewController
+
+@property (strong, nonatomic) NSArray<BWToDoItem *> *dataSource;
+@property (copy, nonatomic) void(^didSelectBlock)(BWToDoItem *item);
 
 @end

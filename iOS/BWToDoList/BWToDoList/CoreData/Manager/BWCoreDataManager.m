@@ -48,7 +48,7 @@
     return persons;
 }
 
-- (BWToDoItem *)insertWithTitle:(NSString *)title content:(NSString *)content {
+- (BWToDoItem *)insertWithTitle:(NSString *)title content:(NSString *)content time:(NSDate *)time {
     if (!title) {
         NSLog(@"CoreData insert error: no title");
         return nil;
@@ -57,6 +57,7 @@
     BWToDoItem *newItem =[NSEntityDescription insertNewObjectForEntityForName:@"ToDoItem" inManagedObjectContext:self.context];
     newItem.title = title;
     if (content) newItem.content = content;
+    if (time) newItem.time = time;
     
     NSError *error = nil;
     [self.context save:&error];

@@ -12,6 +12,8 @@
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="BWToDoDetailViewController">
             <connections>
                 <outlet property="contentTextField" destination="pbP-ew-Vxa" id="iDT-yw-V8r"/>
+                <outlet property="datePicker" destination="h29-dZ-AnG" id="Oik-hP-X0C"/>
+                <outlet property="timeSwitch" destination="VAZ-Ja-HkP" id="rfF-1j-GqE"/>
                 <outlet property="titleTextField" destination="Pq3-eh-WLj" id="9XT-Pi-5vC"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
@@ -51,12 +53,34 @@
                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
                     <textInputTraits key="textInputTraits"/>
                 </textField>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Time" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="WtG-sx-BYc">
+                    <rect key="frame" x="20" y="213" width="38" height="21"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                    <nil key="textColor"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="VAZ-Ja-HkP">
+                    <rect key="frame" x="306" y="208" width="51" height="31"/>
+                </switch>
+                <datePicker contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="dateAndTime" minuteInterval="1" translatesAutoresizingMaskIntoConstraints="NO" id="h29-dZ-AnG">
+                    <rect key="frame" x="20" y="269" width="335" height="162"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="162" id="YSc-BJ-TN7"/>
+                    </constraints>
+                    <date key="date" timeIntervalSinceReferenceDate="541568582.65244305">
+                        <!--2018-03-01 03:43:02 +0000-->
+                    </date>
+                </datePicker>
             </subviews>
             <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
             <constraints>
                 <constraint firstItem="Pq3-eh-WLj" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="20" id="5gr-51-18O"/>
+                <constraint firstItem="h29-dZ-AnG" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="20" id="60h-zP-4Wi"/>
                 <constraint firstAttribute="trailing" secondItem="RzW-WF-Oob" secondAttribute="trailing" constant="20" id="C38-HD-tmv"/>
+                <constraint firstItem="WtG-sx-BYc" firstAttribute="top" secondItem="pbP-ew-Vxa" secondAttribute="bottom" constant="20" id="FVt-uy-eSQ"/>
                 <constraint firstItem="9z9-bv-ZZJ" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="60" id="Ma6-JM-Iqc"/>
+                <constraint firstAttribute="trailing" secondItem="h29-dZ-AnG" secondAttribute="trailing" constant="20" id="NOv-BD-RaP"/>
+                <constraint firstAttribute="trailing" secondItem="VAZ-Ja-HkP" secondAttribute="trailing" constant="20" id="RIX-B9-JMd"/>
                 <constraint firstAttribute="trailing" secondItem="Pq3-eh-WLj" secondAttribute="trailing" constant="20" id="V4d-Vi-bkx"/>
                 <constraint firstItem="Pq3-eh-WLj" firstAttribute="top" secondItem="9z9-bv-ZZJ" secondAttribute="bottom" constant="8" id="Y8p-T2-EmW"/>
                 <constraint firstItem="pbP-ew-Vxa" firstAttribute="top" secondItem="RzW-WF-Oob" secondAttribute="bottom" constant="8" id="aMj-cb-od6"/>
@@ -64,7 +88,10 @@
                 <constraint firstItem="RzW-WF-Oob" firstAttribute="top" secondItem="Pq3-eh-WLj" secondAttribute="bottom" constant="15" id="bA1-5b-kmz"/>
                 <constraint firstItem="pbP-ew-Vxa" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="20" id="bXE-7f-1CY"/>
                 <constraint firstItem="RzW-WF-Oob" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="20" id="fe7-cf-kfx"/>
+                <constraint firstItem="h29-dZ-AnG" firstAttribute="top" secondItem="VAZ-Ja-HkP" secondAttribute="bottom" constant="30" id="kU6-o1-Qme"/>
+                <constraint firstItem="VAZ-Ja-HkP" firstAttribute="centerY" secondItem="WtG-sx-BYc" secondAttribute="centerY" id="oTt-sH-CP3"/>
                 <constraint firstAttribute="trailing" secondItem="pbP-ew-Vxa" secondAttribute="trailing" constant="20" id="tVb-cS-IE5"/>
+                <constraint firstItem="WtG-sx-BYc" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="20" id="u2p-Bl-BFA"/>
                 <constraint firstAttribute="trailing" secondItem="9z9-bv-ZZJ" secondAttribute="trailing" constant="20" id="yKc-tE-d9g"/>
             </constraints>
             <point key="canvasLocation" x="40.5" y="53.5"/>

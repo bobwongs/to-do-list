@@ -13,6 +13,8 @@
 
 @property (weak, nonatomic) IBOutlet UITextField *titleTextField;
 @property (weak, nonatomic) IBOutlet UITextField *contentTextField;
+@property (weak, nonatomic) IBOutlet UISwitch *timeSwitch;
+@property (weak, nonatomic) IBOutlet UIDatePicker *datePicker;
 
 @end
 
@@ -25,6 +27,8 @@
     self.title = @"To Do Item";
     [self setupNavigationUI];
     [self setupUIData];
+    
+    [self setNeedsStatusBarAppearanceUpdate];
 }
 
 #pragma mark - Action
@@ -36,19 +40,22 @@
 - (void)doneAction {
     NSString *title = self.titleTextField.text;
     NSString *content = self.contentTextField.text;
+    NSDate *time = self.timeSwitch.on ? self.datePicker.date : nil;
     
     // Modified.
     if (self.item) {
-        if (![self.item.title isEqualToString:title]) self.item.title = title;
-        if (![self.item.content isEqualToString:content]) self.item.content = content;
+        self.item.title = title;
+        self.item.content = content;
+        self.item.time = time;
         [[BWCoreDataManager sharedManager] save];
+        
         if (self.modificationBlock) self.modificationBlock(self.item);
         [self dismissVC];
         return;
     }
     
     // New added.
-    BWToDoItem *item = [[BWCoreDataManager sharedManager] insertWithTitle:title content:content];
+    BWToDoItem *item = [[BWCoreDataManager sharedManager] insertWithTitle:title content:content time:time];
     if (!item) {  // 插入失败
         return;
     }
@@ -81,6 +88,12 @@
         return;
     }
     [self dismissViewControllerAnimated:YES completion:nil];
+}
+
+#pragma mark - Override
+
+- (UIStatusBarStyle)preferredStatusBarStyle {
+    return UIStatusBarStyleLightContent;
 }
 
 @end
