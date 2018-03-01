@@ -12,8 +12,9 @@
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="BWToDoDetailViewController">
             <connections>
                 <outlet property="contentTextField" destination="pbP-ew-Vxa" id="iDT-yw-V8r"/>
-                <outlet property="datePicker" destination="h29-dZ-AnG" id="Oik-hP-X0C"/>
-                <outlet property="timeSwitch" destination="VAZ-Ja-HkP" id="rfF-1j-GqE"/>
+                <outlet property="datePicker" destination="h29-dZ-AnG" id="Fjx-C0-WIa"/>
+                <outlet property="datePickerHeight" destination="YSc-BJ-TN7" id="xFP-wp-Pvq"/>
+                <outlet property="timeSwitch" destination="VAZ-Ja-HkP" id="9sS-xZ-4Xf"/>
                 <outlet property="titleTextField" destination="Pq3-eh-WLj" id="9XT-Pi-5vC"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
@@ -61,11 +62,14 @@
                 </label>
                 <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="VAZ-Ja-HkP">
                     <rect key="frame" x="306" y="208" width="51" height="31"/>
+                    <connections>
+                        <action selector="switchAction:" destination="-1" eventType="valueChanged" id="4IA-8P-LJQ"/>
+                    </connections>
                 </switch>
                 <datePicker contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="dateAndTime" minuteInterval="1" translatesAutoresizingMaskIntoConstraints="NO" id="h29-dZ-AnG">
-                    <rect key="frame" x="20" y="269" width="335" height="162"/>
+                    <rect key="frame" x="20" y="269" width="335" height="0.0"/>
                     <constraints>
-                        <constraint firstAttribute="height" constant="162" id="YSc-BJ-TN7"/>
+                        <constraint firstAttribute="height" id="YSc-BJ-TN7"/>
                     </constraints>
                     <date key="date" timeIntervalSinceReferenceDate="541568582.65244305">
                         <!--2018-03-01 03:43:02 +0000-->
@@ -94,7 +98,7 @@
                 <constraint firstItem="WtG-sx-BYc" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="20" id="u2p-Bl-BFA"/>
                 <constraint firstAttribute="trailing" secondItem="9z9-bv-ZZJ" secondAttribute="trailing" constant="20" id="yKc-tE-d9g"/>
             </constraints>
-            <point key="canvasLocation" x="40.5" y="53.5"/>
+            <point key="canvasLocation" x="40" y="57"/>
         </view>
     </objects>
 </document>

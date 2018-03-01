@@ -5,11 +5,11 @@ ToDoListv1.0.0
         CoreData（Done）
         Sqlite
     3、查看To Do详情功能（Done）
-    4、搜索功能（Done）；
+    4、搜索功能（Done）
     
 ToDoListv1.1.0
     1、To Do样式增加
-        标题、详情、提醒时间等等
+        标题、详情、提醒时间（Done）
     2、应用国际化
 
 ToDoListv1.1.1

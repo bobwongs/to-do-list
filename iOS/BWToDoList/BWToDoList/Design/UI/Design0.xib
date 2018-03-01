@@ -200,5 +200,47 @@
             </constraints>
             <point key="canvasLocation" x="-459.5" y="876.5"/>
         </view>
+        <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" rowHeight="69" id="EAk-6g-QPg">
+            <rect key="frame" x="0.0" y="0.0" width="320" height="72"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="EAk-6g-QPg" id="PMS-75-PPh">
+                <rect key="frame" x="0.0" y="0.0" width="320" height="71.5"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="1000" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5eV-ah-Xwm">
+                        <rect key="frame" x="14" y="11" width="44.5" height="20.5"/>
+                        <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
+                        <nil key="textColor"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="S71-xR-YWx">
+                        <rect key="frame" x="14" y="42.5" width="42" height="18.5"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                        <nil key="textColor"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Bcj-ba-Lro">
+                        <rect key="frame" x="266" y="25" width="42" height="21"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                        <nil key="textColor"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                </subviews>
+                <constraints>
+                    <constraint firstAttribute="bottom" secondItem="S71-xR-YWx" secondAttribute="bottom" constant="11" id="EMg-7k-Mpf"/>
+                    <constraint firstItem="5eV-ah-Xwm" firstAttribute="leading" secondItem="PMS-75-PPh" secondAttribute="leading" constant="14" id="LiL-6n-ZRc"/>
+                    <constraint firstItem="Bcj-ba-Lro" firstAttribute="centerY" secondItem="PMS-75-PPh" secondAttribute="centerY" id="Lzl-UF-L7S"/>
+                    <constraint firstAttribute="trailing" secondItem="Bcj-ba-Lro" secondAttribute="trailing" constant="12" id="OzP-bj-tWY"/>
+                    <constraint firstItem="5eV-ah-Xwm" firstAttribute="top" secondItem="PMS-75-PPh" secondAttribute="top" constant="11" id="SZ1-Tz-56T"/>
+                    <constraint firstItem="S71-xR-YWx" firstAttribute="leading" secondItem="PMS-75-PPh" secondAttribute="leading" constant="14" id="eln-qS-ah6"/>
+                    <constraint firstItem="S71-xR-YWx" firstAttribute="top" secondItem="5eV-ah-Xwm" secondAttribute="bottom" constant="11" id="o8d-Pk-fDP"/>
+                </constraints>
+            </tableViewCellContentView>
+            <connections>
+                <outlet property="contentLabel" destination="S71-xR-YWx" id="Ja1-dZ-lJK"/>
+                <outlet property="titleLabel" destination="5eV-ah-Xwm" id="sz1-EG-Zsa"/>
+            </connections>
+            <point key="canvasLocation" x="-939" y="1328"/>
+        </tableViewCell>
     </objects>
 </document>

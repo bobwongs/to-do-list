@@ -67,6 +67,16 @@ NSString *const BWToDoListCellId = @"BWToDoListCellId";
     cell.titleLabel.text = item.title;
     cell.contentLabel.text = item.content;
     
+    NSString *timeStr;
+    if (item.time) {
+        NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
+        formatter.dateFormat = @"YYYY/MM/dd HH:mm";
+        timeStr = [formatter stringFromDate:item.time];
+    } else {
+        timeStr = @"";
+    }
+    cell.timeLabel.text = timeStr;
+    
     return cell;
 }
 

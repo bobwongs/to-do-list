@@ -30,19 +30,28 @@
                         <nil key="textColor"/>
                         <nil key="highlightedColor"/>
                     </label>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6mN-uz-NXP">
+                        <rect key="frame" x="266" y="25" width="42" height="21"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                        <nil key="textColor"/>
+                        <nil key="highlightedColor"/>
+                    </label>
                 </subviews>
                 <constraints>
                     <constraint firstItem="PDx-Lk-Wlg" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="14" id="0Qe-gS-KSd"/>
                     <constraint firstItem="ssm-Mr-J8k" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="11" id="Ap9-aQ-0do"/>
                     <constraint firstAttribute="trailing" secondItem="ssm-Mr-J8k" secondAttribute="trailing" constant="14" id="EH4-U5-qMa"/>
                     <constraint firstItem="ssm-Mr-J8k" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="14" id="Rvu-B4-YzB"/>
+                    <constraint firstItem="6mN-uz-NXP" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" id="TFb-me-fgc"/>
                     <constraint firstAttribute="trailing" secondItem="PDx-Lk-Wlg" secondAttribute="trailing" constant="14" id="Ulb-rQ-D6O"/>
+                    <constraint firstAttribute="trailing" secondItem="6mN-uz-NXP" secondAttribute="trailing" constant="12" id="cD6-nB-faC"/>
                     <constraint firstItem="PDx-Lk-Wlg" firstAttribute="top" secondItem="ssm-Mr-J8k" secondAttribute="bottom" constant="11" id="fy1-q1-Lgc"/>
                     <constraint firstAttribute="bottom" secondItem="PDx-Lk-Wlg" secondAttribute="bottom" constant="11" id="gYA-n6-C5Q"/>
                 </constraints>
             </tableViewCellContentView>
             <connections>
                 <outlet property="contentLabel" destination="PDx-Lk-Wlg" id="UEV-zf-PRU"/>
+                <outlet property="timeLabel" destination="6mN-uz-NXP" id="cCD-fU-FJp"/>
                 <outlet property="titleLabel" destination="ssm-Mr-J8k" id="k48-m5-iQB"/>
             </connections>
             <point key="canvasLocation" x="34" y="66.5"/>

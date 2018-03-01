@@ -128,7 +128,7 @@
     // 创建并关联SQLite数据库文件，如果已经存在则不会重复创建
     NSString *dataPath = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES).lastObject;
     NSLog(@"dataPath: %@", dataPath);
-    dataPath = [dataPath stringByAppendingFormat:@"/%@.sqlite", @"Person"];
+    dataPath = [dataPath stringByAppendingFormat:@"/%@.sqlite", @"ToDoList"];
     [coordinator addPersistentStoreWithType:NSSQLiteStoreType configuration:nil URL:[NSURL fileURLWithPath:dataPath] options:nil error:nil];
     
     // 上下文对象设置属性为持久化存储器

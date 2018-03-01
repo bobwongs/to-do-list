@@ -31,7 +31,6 @@
 		B4B53DEB202C02B400D9242F /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = B4B53DEA202C02B400D9242F /* main.m */; };
 		B4B53DF5202C02B400D9242F /* BWToDoListTests.m in Sources */ = {isa = PBXBuildFile; fileRef = B4B53DF4202C02B400D9242F /* BWToDoListTests.m */; };
 		B4B53E00202C02B400D9242F /* BWToDoListUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = B4B53DFF202C02B400D9242F /* BWToDoListUITests.m */; };
-		B4B53E4C202C052200D9242F /* Design0.xib in Resources */ = {isa = PBXBuildFile; fileRef = B4B53E4B202C052200D9242F /* Design0.xib */; };
 		B4BA0142204799E500470E84 /* BWToDoListSearchResultViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B4BA013F204799E500470E84 /* BWToDoListSearchResultViewController.m */; };
 		B4BA0143204799E500470E84 /* BWToDoListSearchResultViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = B4BA0140204799E500470E84 /* BWToDoListSearchResultViewController.xib */; };
 		B4BA014720479A5400470E84 /* BWToDoListSearchResultCell.m in Sources */ = {isa = PBXBuildFile; fileRef = B4BA014520479A5400470E84 /* BWToDoListSearchResultCell.m */; };
@@ -620,7 +619,6 @@
 				B4B3F97C203121D10064F9CF /* Images.xcassets in Resources */,
 				B4AD904E202D9837000F1EB0 /* BWToDoDetailViewController.xib in Resources */,
 				B4B53DE8202C02B400D9242F /* LaunchScreen.storyboard in Resources */,
-				B4B53E4C202C052200D9242F /* Design0.xib in Resources */,
 				B4B53DE3202C02B400D9242F /* Main.storyboard in Resources */,
 				B4AD9045202D8A49000F1EB0 /* Document.md in Resources */,
 				B4AD9034202D6E08000F1EB0 /* BWToDoListViewController.xib in Resources */,

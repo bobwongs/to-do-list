@@ -16,6 +16,8 @@
 @property (weak, nonatomic) IBOutlet UISwitch *timeSwitch;
 @property (weak, nonatomic) IBOutlet UIDatePicker *datePicker;
 
+@property (weak, nonatomic) IBOutlet NSLayoutConstraint *datePickerHeight;
+
 @end
 
 @implementation BWToDoDetailViewController
@@ -63,6 +65,10 @@
     [self dismissVC];
 }
 
+- (IBAction)switchAction:(UISwitch *)sender {
+    self.datePickerHeight.constant = sender.on ? 162.0 : 0.0;
+}
+
 #pragma mark - Private Method
 
 - (void)setupNavigationUI {
@@ -79,6 +85,12 @@
     if (self.item) {
         self.titleTextField.text = self.item.title;
         self.contentTextField.text = self.item.content;
+        
+        if (self.item.time) {
+            self.datePicker.date = self.item.time;
+            self.timeSwitch.on = YES;
+            [self.timeSwitch sendActionsForControlEvents:UIControlEventValueChanged];
+        }
     }
 }
 
