@@ -1,23 +1,24 @@
 {
-  "pages":[
+  "pages": [
     "pages/index/index",
-    "pages/me/index"
+    "pages/me/index",
+    "pages/index/detail/detail"
   ],
-  "window":{
-    "backgroundTextStyle":"light",
+  "window": {
+    "backgroundTextStyle": "light",
     "navigationBarBackgroundColor": "#2A282E",
-    "navigationBarTitleText": "To Do List",
-    "navigationBarTextStyle":"white"
+    "navigationBarTitleText": "待办事项",
+    "navigationBarTextStyle": "white"
   },
   "tabBar": {
     "list": [
       {
         "pagePath": "pages/index/index",
-        "text": "首页"
+        "text": "待办事项"
       },
       {
         "pagePath": "pages/me/index",
-        "text": "我的"
+        "text": "我"
       }
     ]
   }

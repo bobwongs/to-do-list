@@ -1,18 +1,12 @@
 <!--index.wxml-->
 <view class="container">
   <view class="input-container">
-    <input placeholder='Please input title'/>
-    <button>Reset</button>
-    <button>Add</button>
+    <input class='input' placeholder='输入搜索内容' confirm-type='search' bindconfirm='search'/>
+    <button class='button' bindtap='reset'>重置</button>
+    <button class='button' bindtap='add'>新增</button>
   </view>
   <scroll-view class='list-container' scroll-y="true">
-    <template is="listItem" wx:for="{{[1, 2, 3]}}"/>
+    <!-- <template is="listtem" wx:for="{{[1, 2, 3]}}"/> -->
+    <!-- <list-item  wx:for="{{[1, 2, 3]}}"></list-item> -->
   </scroll-view>
 </view>
-
-<template name="listItem">
-  <view class='list-item'>
-    <text>Title</text>
-    <button>Delete</button>
-  </view>
-</template>
