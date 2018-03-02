@@ -11,10 +11,13 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="BWToDoDetailViewController">
             <connections>
+                <outlet property="contentLabel" destination="RzW-WF-Oob" id="60E-7A-WuK"/>
                 <outlet property="contentTextField" destination="pbP-ew-Vxa" id="iDT-yw-V8r"/>
                 <outlet property="datePicker" destination="h29-dZ-AnG" id="Fjx-C0-WIa"/>
                 <outlet property="datePickerHeight" destination="YSc-BJ-TN7" id="xFP-wp-Pvq"/>
+                <outlet property="timeLabel" destination="WtG-sx-BYc" id="b84-4f-0Nd"/>
                 <outlet property="timeSwitch" destination="VAZ-Ja-HkP" id="9sS-xZ-4Xf"/>
+                <outlet property="titleLabel" destination="9z9-bv-ZZJ" id="nBq-tF-0PC"/>
                 <outlet property="titleTextField" destination="Pq3-eh-WLj" id="9XT-Pi-5vC"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
@@ -24,13 +27,13 @@
             <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9z9-bv-ZZJ">
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="标题" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9z9-bv-ZZJ">
                     <rect key="frame" x="20" y="60" width="335" height="21"/>
                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                     <nil key="textColor"/>
                     <nil key="highlightedColor"/>
                 </label>
-                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Content" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="RzW-WF-Oob">
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="内容" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="RzW-WF-Oob">
                     <rect key="frame" x="20" y="134" width="335" height="21"/>
                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                     <nil key="textColor"/>
@@ -54,8 +57,8 @@
                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
                     <textInputTraits key="textInputTraits"/>
                 </textField>
-                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Time" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="WtG-sx-BYc">
-                    <rect key="frame" x="20" y="213" width="38" height="21"/>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="提醒时间" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="WtG-sx-BYc">
+                    <rect key="frame" x="20" y="213" width="70" height="21"/>
                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                     <nil key="textColor"/>
                     <nil key="highlightedColor"/>
@@ -98,7 +101,7 @@
                 <constraint firstItem="WtG-sx-BYc" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="20" id="u2p-Bl-BFA"/>
                 <constraint firstAttribute="trailing" secondItem="9z9-bv-ZZJ" secondAttribute="trailing" constant="20" id="yKc-tE-d9g"/>
             </constraints>
-            <point key="canvasLocation" x="40" y="57"/>
+            <point key="canvasLocation" x="7" y="25"/>
         </view>
     </objects>
 </document>

@@ -8,7 +8,6 @@
 
 /* Begin PBXBuildFile section */
 		901A33CA57543C97B82114B6 /* libPods-BWToDoList.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 268B1D5730A496129A993DE8 /* libPods-BWToDoList.a */; };
-		B4A8A5D7203183B5003AE144 /* ToDoRecord.md in Resources */ = {isa = PBXBuildFile; fileRef = B4A8A5D6203183B5003AE144 /* ToDoRecord.md */; };
 		B4AD9023202D54D1000F1EB0 /* BWBaseViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B4AD9022202D54D1000F1EB0 /* BWBaseViewController.m */; };
 		B4AD9026202D54ED000F1EB0 /* BWToDoListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B4AD9025202D54ED000F1EB0 /* BWToDoListViewController.m */; };
 		B4AD902D202D6A9B000F1EB0 /* UINavigationController+BWAdd.m in Sources */ = {isa = PBXBuildFile; fileRef = B4AD902C202D6A9B000F1EB0 /* UINavigationController+BWAdd.m */; };
@@ -18,9 +17,9 @@
 		B4AD903D202D6EA5000F1EB0 /* BWMainTabBarController.m in Sources */ = {isa = PBXBuildFile; fileRef = B4AD903C202D6EA5000F1EB0 /* BWMainTabBarController.m */; };
 		B4AD9041202D79D1000F1EB0 /* BWToDoListCell.m in Sources */ = {isa = PBXBuildFile; fileRef = B4AD903F202D79D1000F1EB0 /* BWToDoListCell.m */; };
 		B4AD9042202D79D1000F1EB0 /* BWToDoListCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = B4AD9040202D79D1000F1EB0 /* BWToDoListCell.xib */; };
-		B4AD9045202D8A49000F1EB0 /* Document.md in Resources */ = {isa = PBXBuildFile; fileRef = B4AD9044202D8A49000F1EB0 /* Document.md */; };
 		B4AD904D202D9837000F1EB0 /* BWToDoDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B4AD904B202D9837000F1EB0 /* BWToDoDetailViewController.m */; };
-		B4AD904E202D9837000F1EB0 /* BWToDoDetailViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = B4AD904C202D9837000F1EB0 /* BWToDoDetailViewController.xib */; };
+		B4B3F0302048DF8F003F427B /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = B4B3F0322048DF8F003F427B /* Localizable.strings */; };
+		B4B3F0452049011A003F427B /* BWToDoDetailViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = B4B3F0472049011A003F427B /* BWToDoDetailViewController.xib */; };
 		B4B3F9792031215B0064F9CF /* BWCoreDataManager.m in Sources */ = {isa = PBXBuildFile; fileRef = B4B3F9742031215A0064F9CF /* BWCoreDataManager.m */; };
 		B4B3F97A2031215B0064F9CF /* BWToDoModel.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = B4B3F9772031215A0064F9CF /* BWToDoModel.xcdatamodeld */; };
 		B4B3F97C203121D10064F9CF /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B4B3F97B203121D10064F9CF /* Images.xcassets */; };
@@ -60,7 +59,6 @@
 		55646A33B6E45443DA025042 /* libPods-BWToDoListUITests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-BWToDoListUITests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		A25AFF590B9EE6EA282ACBB7 /* Pods-BWToDoList.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BWToDoList.release.xcconfig"; path = "Pods/Target Support Files/Pods-BWToDoList/Pods-BWToDoList.release.xcconfig"; sourceTree = "<group>"; };
 		A6C52411FC9A586487F742D2 /* Pods-BWToDoList.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BWToDoList.debug.xcconfig"; path = "Pods/Target Support Files/Pods-BWToDoList/Pods-BWToDoList.debug.xcconfig"; sourceTree = "<group>"; };
-		B4A8A5D6203183B5003AE144 /* ToDoRecord.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = ToDoRecord.md; sourceTree = "<group>"; };
 		B4AD9021202D54D1000F1EB0 /* BWBaseViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BWBaseViewController.h; sourceTree = "<group>"; };
 		B4AD9022202D54D1000F1EB0 /* BWBaseViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BWBaseViewController.m; sourceTree = "<group>"; };
 		B4AD9024202D54ED000F1EB0 /* BWToDoListViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BWToDoListViewController.h; sourceTree = "<group>"; };
@@ -76,10 +74,18 @@
 		B4AD903E202D79D1000F1EB0 /* BWToDoListCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BWToDoListCell.h; sourceTree = "<group>"; };
 		B4AD903F202D79D1000F1EB0 /* BWToDoListCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BWToDoListCell.m; sourceTree = "<group>"; };
 		B4AD9040202D79D1000F1EB0 /* BWToDoListCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = BWToDoListCell.xib; sourceTree = "<group>"; };
-		B4AD9044202D8A49000F1EB0 /* Document.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = Document.md; sourceTree = "<group>"; };
 		B4AD904A202D9837000F1EB0 /* BWToDoDetailViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BWToDoDetailViewController.h; sourceTree = "<group>"; };
 		B4AD904B202D9837000F1EB0 /* BWToDoDetailViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BWToDoDetailViewController.m; sourceTree = "<group>"; };
-		B4AD904C202D9837000F1EB0 /* BWToDoDetailViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = BWToDoDetailViewController.xib; sourceTree = "<group>"; };
+		B4B3F02A2048DEC4003F427B /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/LaunchScreen.strings"; sourceTree = "<group>"; };
+		B4B3F02B2048DEC4003F427B /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/Main.strings"; sourceTree = "<group>"; };
+		B4B3F0312048DF8F003F427B /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
+		B4B3F0332048DF94003F427B /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/Localizable.strings"; sourceTree = "<group>"; };
+		B4B3F03A2048EAA2003F427B /* BWMacroDefinition.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BWMacroDefinition.h; sourceTree = "<group>"; };
+		B4B3F03B2048EB15003F427B /* BWToDoList.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BWToDoList.pch; sourceTree = "<group>"; };
+		B4B3F0432048F1AB003F427B /* Document */ = {isa = PBXFileReference; lastKnownFileType = folder; path = Document; sourceTree = "<group>"; };
+		B4B3F0462049011A003F427B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/BWToDoDetailViewController.xib; sourceTree = "<group>"; };
+		B4B3F04920490124003F427B /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/BWToDoDetailViewController.strings; sourceTree = "<group>"; };
+		B4B3F04B2049012A003F427B /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/BWToDoDetailViewController.strings"; sourceTree = "<group>"; };
 		B4B3F9732031215A0064F9CF /* BWCoreDataManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BWCoreDataManager.h; sourceTree = "<group>"; };
 		B4B3F9742031215A0064F9CF /* BWCoreDataManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BWCoreDataManager.m; sourceTree = "<group>"; };
 		B4B3F9782031215A0064F9CF /* BWToDoModel.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = BWToDoModel.xcdatamodel; sourceTree = "<group>"; };
@@ -290,15 +296,6 @@
 			path = Main;
 			sourceTree = "<group>";
 		};
-		B4AD9043202D8A28000F1EB0 /* Document */ = {
-			isa = PBXGroup;
-			children = (
-				B4AD9044202D8A49000F1EB0 /* Document.md */,
-				B4A8A5D6203183B5003AE144 /* ToDoRecord.md */,
-			);
-			path = Document;
-			sourceTree = "<group>";
-		};
 		B4AD9046202D97FA000F1EB0 /* Detail */ = {
 			isa = PBXGroup;
 			children = (
@@ -321,7 +318,7 @@
 			children = (
 				B4AD904A202D9837000F1EB0 /* BWToDoDetailViewController.h */,
 				B4AD904B202D9837000F1EB0 /* BWToDoDetailViewController.m */,
-				B4AD904C202D9837000F1EB0 /* BWToDoDetailViewController.xib */,
+				B4B3F0472049011A003F427B /* BWToDoDetailViewController.xib */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -331,6 +328,30 @@
 			children = (
 			);
 			path = View;
+			sourceTree = "<group>";
+		};
+		B4B3F02C2048DF6B003F427B /* Resource */ = {
+			isa = PBXGroup;
+			children = (
+				B4B3F02D2048DF6B003F427B /* Localization */,
+			);
+			path = Resource;
+			sourceTree = "<group>";
+		};
+		B4B3F02D2048DF6B003F427B /* Localization */ = {
+			isa = PBXGroup;
+			children = (
+				B4B3F0322048DF8F003F427B /* Localizable.strings */,
+			);
+			path = Localization;
+			sourceTree = "<group>";
+		};
+		B4B3F0392048EA2B003F427B /* Global */ = {
+			isa = PBXGroup;
+			children = (
+				B4B3F03A2048EAA2003F427B /* BWMacroDefinition.h */,
+			);
+			path = Global;
 			sourceTree = "<group>";
 		};
 		B4B3F96C20311EAE0064F9CF /* Utility */ = {
@@ -411,11 +432,13 @@
 			children = (
 				B4B53DDB202C02B400D9242F /* AppDelegate.h */,
 				B4B53DDC202C02B400D9242F /* AppDelegate.m */,
-				B4AD9043202D8A28000F1EB0 /* Document */,
+				B4B3F0432048F1AB003F427B /* Document */,
 				B4AD901A202D547D000F1EB0 /* Business */,
+				B4B3F0392048EA2B003F427B /* Global */,
 				B4AD901F202D54BB000F1EB0 /* Common */,
 				B4B3F9712031215A0064F9CF /* CoreData */,
 				B4B53E47202C049E00D9242F /* Design */,
+				B4B3F02C2048DF6B003F427B /* Resource */,
 				B4B3F97B203121D10064F9CF /* Images.xcassets */,
 				B4B53E49202C04CB00D9242F /* Supporting Files */,
 			);
@@ -455,6 +478,7 @@
 				B4B53DE9202C02B400D9242F /* Info.plist */,
 				B4B53DE6202C02B400D9242F /* LaunchScreen.storyboard */,
 				B4B53DE1202C02B400D9242F /* Main.storyboard */,
+				B4B3F03B2048EB15003F427B /* BWToDoList.pch */,
 			);
 			name = "Supporting Files";
 			sourceTree = "<group>";
@@ -596,6 +620,7 @@
 			knownRegions = (
 				en,
 				Base,
+				"zh-Hans",
 			);
 			mainGroup = B4B53DCF202C02B300D9242F;
 			productRefGroup = B4B53DD9202C02B400D9242F /* Products */;
@@ -615,16 +640,15 @@
 			buildActionMask = 2147483647;
 			files = (
 				B4BA0143204799E500470E84 /* BWToDoListSearchResultViewController.xib in Resources */,
+				B4B3F0302048DF8F003F427B /* Localizable.strings in Resources */,
+				B4B3F0452049011A003F427B /* BWToDoDetailViewController.xib in Resources */,
 				B4BA014820479A5400470E84 /* BWToDoListSearchResultCell.xib in Resources */,
 				B4B3F97C203121D10064F9CF /* Images.xcassets in Resources */,
-				B4AD904E202D9837000F1EB0 /* BWToDoDetailViewController.xib in Resources */,
 				B4B53DE8202C02B400D9242F /* LaunchScreen.storyboard in Resources */,
 				B4B53DE3202C02B400D9242F /* Main.storyboard in Resources */,
-				B4AD9045202D8A49000F1EB0 /* Document.md in Resources */,
 				B4AD9034202D6E08000F1EB0 /* BWToDoListViewController.xib in Resources */,
 				B4AD9042202D79D1000F1EB0 /* BWToDoListCell.xib in Resources */,
 				B4AD9039202D6E78000F1EB0 /* BWMeViewController.xib in Resources */,
-				B4A8A5D7203183B5003AE144 /* ToDoRecord.md in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -749,10 +773,30 @@
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
+		B4B3F0322048DF8F003F427B /* Localizable.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				B4B3F0312048DF8F003F427B /* en */,
+				B4B3F0332048DF94003F427B /* zh-Hans */,
+			);
+			name = Localizable.strings;
+			sourceTree = "<group>";
+		};
+		B4B3F0472049011A003F427B /* BWToDoDetailViewController.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				B4B3F0462049011A003F427B /* Base */,
+				B4B3F04920490124003F427B /* en */,
+				B4B3F04B2049012A003F427B /* zh-Hans */,
+			);
+			name = BWToDoDetailViewController.xib;
+			sourceTree = "<group>";
+		};
 		B4B53DE1202C02B400D9242F /* Main.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
 				B4B53DE2202C02B400D9242F /* Base */,
+				B4B3F02B2048DEC4003F427B /* zh-Hans */,
 			);
 			name = Main.storyboard;
 			sourceTree = "<group>";
@@ -761,6 +805,7 @@
 			isa = PBXVariantGroup;
 			children = (
 				B4B53DE7202C02B400D9242F /* Base */,
+				B4B3F02A2048DEC4003F427B /* zh-Hans */,
 			);
 			name = LaunchScreen.storyboard;
 			sourceTree = "<group>";
@@ -773,6 +818,7 @@
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = NO;
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
@@ -830,6 +876,7 @@
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = NO;
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
@@ -884,6 +931,7 @@
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = V3E8GUFW32;
+				GCC_PREFIX_HEADER = BWToDoList/BWToDoList.pch;
 				INFOPLIST_FILE = BWToDoList/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
@@ -901,6 +949,7 @@
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = V3E8GUFW32;
+				GCC_PREFIX_HEADER = BWToDoList/BWToDoList.pch;
 				INFOPLIST_FILE = BWToDoList/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";

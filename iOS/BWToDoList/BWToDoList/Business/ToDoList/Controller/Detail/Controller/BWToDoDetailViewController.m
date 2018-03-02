@@ -11,8 +11,11 @@
 
 @interface BWToDoDetailViewController ()
 
+@property (weak, nonatomic) IBOutlet UILabel *titleLabel;
 @property (weak, nonatomic) IBOutlet UITextField *titleTextField;
 @property (weak, nonatomic) IBOutlet UITextField *contentTextField;
+@property (weak, nonatomic) IBOutlet UILabel *contentLabel;
+@property (weak, nonatomic) IBOutlet UILabel *timeLabel;
 @property (weak, nonatomic) IBOutlet UISwitch *timeSwitch;
 @property (weak, nonatomic) IBOutlet UIDatePicker *datePicker;
 
@@ -29,6 +32,7 @@
     self.title = @"To Do Item";
     [self setupNavigationUI];
     [self setupUIData];
+    [self localize];
     
     [self setNeedsStatusBarAppearanceUpdate];
 }
@@ -92,6 +96,13 @@
             [self.timeSwitch sendActionsForControlEvents:UIControlEventValueChanged];
         }
     }
+}
+
+/** 本地化 */
+- (void)localize {
+    self.titleLabel.text = BWLocalized(@"标题");
+    self.contentLabel.text = BWLocalized(@"内容");
+    self.timeLabel.text = BWLocalized(@"提醒时间");
 }
 
 - (void)dismissVC {

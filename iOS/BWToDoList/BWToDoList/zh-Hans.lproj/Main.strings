@@ -1,0 +1,12 @@
+
+/* Class = "UITextField"; placeholder = "Please input to do title"; ObjectID = "20E-qb-qzU"; */
+"20E-qb-qzU.placeholder" = "Please input to do title";
+
+/* Class = "UIButton"; normalTitle = "Reset"; ObjectID = "2qB-uz-Cab"; */
+"2qB-uz-Cab.normalTitle" = "Reset";
+
+/* Class = "UIButton"; normalTitle = "Add"; ObjectID = "ONo-Yv-Rud"; */
+"ONo-Yv-Rud.normalTitle" = "Add";
+
+/* Class = "UILabel"; text = "To Do List"; ObjectID = "bm5-XP-qiP"; */
+"bm5-XP-qiP.text" = "To Do List";

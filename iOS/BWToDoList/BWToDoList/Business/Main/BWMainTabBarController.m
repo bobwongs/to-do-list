@@ -24,18 +24,21 @@
 
 - (void)setupViewController {
     BWToDoListViewController *toDoListVC = [BWToDoListViewController new];
+    toDoListVC.title = BWLocalized(@"待办事项");
     UINavigationController *toDoListNavigationVC = [UINavigationController bw_defaultStyleWithRootViewController:toDoListVC];
     
     BWMeViewController *meVC = [BWMeViewController new];
+    meVC.title = BWLocalized(@"我");
     UINavigationController *meNavigationVC = [UINavigationController bw_defaultStyleWithRootViewController:meVC];
     
     self.viewControllers = @[toDoListNavigationVC, meNavigationVC];
     
-    NSArray<NSString *> *titleArray = @[@"List", @"Me"];
+    NSArray<NSString *> *titleArray = @[BWLocalized(@"待办事项"), BWLocalized(@"我")];
 //    NSArray<NSString *> *normalImageNameArray = @[@"shop2", @"cart2"];
 //    NSArray<NSString *> *selectedImageNameArray = @[@"shop1", @"cart1"];
     [self.viewControllers enumerateObjectsUsingBlock:^(__kindof UIViewController * _Nonnull vc, NSUInteger idx, BOOL * _Nonnull stop) {
-        vc.tabBarItem.title = titleArray[idx];
+        NSString *title = titleArray[idx];
+        vc.tabBarItem.title = title;
     }];
 }
 

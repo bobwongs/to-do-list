@@ -34,7 +34,6 @@ NSString *const BWToDoListCellId = @"BWToDoListCellId";
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    self.title = @"To Do List";
     [self setupData];
     [self setupNavigationUI];
     [self setupUI];
