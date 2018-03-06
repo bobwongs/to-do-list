@@ -1,0 +1,6 @@
+.list-item {
+  display: flex;
+  flex-direction: row;
+  background-color: yellow;
+  font: 30px;
+}

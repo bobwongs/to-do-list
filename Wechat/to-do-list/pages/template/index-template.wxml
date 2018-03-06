@@ -1,0 +1,7 @@
+<template name="listItem">
+  <view class='list-item'>
+    <text>{{item.title}}</text>
+    <text>{{item.content}}</text>
+    <text>{{item.time}}</text>
+  </view>
+</template>

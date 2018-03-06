@@ -1,1 +1,35 @@
 /* components/list-item/list-item.wxss */
+.item-container {
+  height: 72px;
+  display: flex;
+  flex-direction: row;
+}
+
+.left-container {
+  background-color: orange;
+}
+
+.title-text {
+  font-size: 17px;
+  font-weight: bold;
+  color: black;
+  margin-left: 14px;
+  margin-top: 11;
+}
+
+.content-text {
+  font-size: 17px;
+  color: black;
+  margin-left: 14px;
+  margin-bottom: 11px;
+}
+
+.time-text {
+  font-size: 17px;
+  color: black;
+  margin-right: 12px;
+}
+
+.line-view {
+  background-color: gray;
+}

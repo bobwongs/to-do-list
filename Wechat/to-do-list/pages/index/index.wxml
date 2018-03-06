@@ -1,12 +1,20 @@
 <!--index.wxml-->
 <view class="container">
   <view class="input-container">
-    <input class='input' placeholder='输入搜索内容' confirm-type='search' bindconfirm='search'/>
+    <input class="input" placeholder="输入搜索内容" confirm-type="search" bindconfirm="search" bindinput="bindSearchInput" value="{{inputValue}}"/>
     <button class='button' bindtap='reset'>重置</button>
     <button class='button' bindtap='add'>新增</button>
   </view>
   <scroll-view class='list-container' scroll-y="true">
-    <!-- <template is="listtem" wx:for="{{[1, 2, 3]}}"/> -->
-    <!-- <list-item  wx:for="{{[1, 2, 3]}}"></list-item> -->
+    <block wx:for="{{array}}">
+      <!-- <view> {{index + 1}}: {{item.msg}} </view>   -->
+        <!-- <template is="listItem" data="{{item}}"/>    -->
+      <list-item item="{{item}}"></list-item>
+    </block>
+
   </scroll-view>
+
+  
 </view>
+
+<import src="../template/index-template"/>

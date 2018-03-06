@@ -1,4 +1,6 @@
 /**index.wxss**/
+@import "../template/index-template.wxss"; 
+
 .container {
   height: 100%;
   display: flex;
@@ -38,13 +40,6 @@
 .list-container {
   display: flex;
   flex-direction: column;
-  background-color: orange;
-}
-
-.list-item {
-  display: flex;
-  flex-direction: row;
-  background-color: yellow;
 }
 
 .userinfo {
