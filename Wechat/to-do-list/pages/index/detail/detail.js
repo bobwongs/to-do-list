@@ -26,10 +26,10 @@ Page({
   },
   
   done: function (e) {
-    if (this.data.item != {}) {
-      wx.navigateBack()
-      return
-    } 
+    // if (this.data.item != {}) {
+    //   wx.navigateBack()
+    //   return
+    // } 
 
     var titleValue = this.data.titleValue
     var contentValue = this.data.contentValue
