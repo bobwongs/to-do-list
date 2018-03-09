@@ -47,6 +47,7 @@
                                 <constraint firstAttribute="height" constant="30" id="aqg-L1-WU8"/>
                             </constraints>
                             <nil key="textColor"/>
+                            <fontDescription key="fontDescription" type="system" pointSize="12"/>
                             <textInputTraits key="textInputTraits"/>
                         </textField>
                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="CFS-x2-C8W">

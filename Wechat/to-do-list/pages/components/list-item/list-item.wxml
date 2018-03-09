@@ -1,10 +1,9 @@
 <!--components/list-item/list-item.wxml-->
 <view class='item-container'>
   <view class='left-container'>
-    <text class='title-text'>{{item.title}}</text><br/>
-    <text class='content-text'>{{item.content}}</text>
+    <view class='title'>{{item.title}}</view>
+    <view class='content'>{{item.content}}</view>
   </view>
-  <text class='time-text'>{{item.time}}</text> 
-  <view class='line-view'></view>
+  <view class='time'>{{item.time}}</view>
 </view>
 <slot></slot>

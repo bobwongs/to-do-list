@@ -20,15 +20,10 @@ Page({
     inputValue: ''
   },
   search: function(e) {
-
+    console.log('search')
   },
   reset: function(e) {
-    var inputValue = this.data.inputValue
-    if (inputValue === null || inputValue === undefined || inputValue === '') return
-
-    var array = this.data.array
-    array.push({msg: inputValue})
-    this.setData({array: array, inputValue: ''})
+    this.setData({ inputValue: '' })
   },
   add: function(e) {
     console.log('Add item')
@@ -40,5 +35,24 @@ Page({
     this.setData({
       inputValue: e.detail.value
     })
+  },
+  insert: function(item) {
+    if (item === null || item === undefined || item.title === null || item.title === undefined || item.title === '') return 
+
+    var array = this.data.array
+    array.push(item)
+    this.setData({ array: array, inputValue: '' })
+  },
+  toDetail: function(e) {
+    var index = e.currentTarget.dataset.index  // 获取对应index
+    var item = this.data.array[index]
+    var itemJSONString = JSON.stringify(item)
+    wx.navigateTo({
+      url: 'detail/detail?itemJSONString=' + itemJSONString
+    })
+  },
+
+  test: function(n) {
+    console.log('n: ' + n)
   }
 })
