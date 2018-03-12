@@ -1,8 +1,20 @@
 <!--pages/index/detail/detail.wxml-->
-<view>标题</view>
-<input placeholder='输入标题' value='{{titleValue}}' bindinput='bindTitleInput'></input>
-<view>内容</view>
-<input placeholder='输入内容' value='{{contentValue}}' bindinput='bindContentInput'></input>
-<view>提醒时间</view>
-<input placeholder='输入提醒时间' value='{{timeValue}}' bindinput='bindTimeInput'></input>
-<button bindtap='done'>完成</button>
+<view class='container'>
+  <view class='title-container'>
+    <view class='title'>标题</view>
+    <input class='title-input' placeholder='输入标题' value='{{titleValue}}' bindinput='bindTitleInput'></input>
+  </view>
+  <view>
+    <view class='content-container'>
+      <view class='content'>内容</view>
+      <input class='content-input' placeholder='输入内容' value='{{contentValue}}' bindinput='bindContentInput'></input>
+    </view>
+  </view>
+  <view>
+    <view class='time-container'>
+      <view class='time'>提醒时间</view>
+      <input class='time-input' placeholder='输入提醒时间' value='{{timeValue}}' bindinput='bindTimeInput'></input>
+    </view>
+  </view>
+</view>
+<button class='done-button' bindtap='done'>完成</button>

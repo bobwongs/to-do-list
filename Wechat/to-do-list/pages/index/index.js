@@ -30,7 +30,8 @@ Page({
       success: function(res) {
         if (res.data) {
           console.log('data: ' + res.data)
-          that.setData({ array: res.data })
+          var array = res.data
+          that.setData({ array: array, toDoArray: array })
         }
       },
       fail: function (res) { 
@@ -44,7 +45,18 @@ Page({
   search: function(e) {
     console.log('search')
     var inputValue = this.data.inputValue
+    if (inputValue === '') return
 
+    var toDoArray = this.data.toDoArray
+    var resultArray = []
+    for (var i = 0; i < toDoArray.length; i++) {
+      var item = toDoArray[i]
+      if (item.title.indexOf(inputValue) != -1) {
+        resultArray.push(item)
+      }
+    }
+
+    this.setData({ array: resultArray, searchResultArray: resultArray })
   },
   reset: function(e) {
     this.setData({ inputValue: '' })
@@ -56,9 +68,14 @@ Page({
     })
   },
   bindSearchInput: function(e) {
+    var inputValue = e.detail.value
     this.setData({
-      inputValue: e.detail.value
+      inputValue: inputValue
     })
+    var toDoArray = this.data.toDoArray
+    if (inputValue === '') {
+      this.setData({ array: toDoArray })
+    }
   },
   insert: function(item) {
     if (item === null || item === undefined || item.title === null || item.title === undefined || item.title === '') return 

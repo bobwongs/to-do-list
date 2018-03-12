@@ -1,1 +1,9 @@
 /* pages/index/detail/detail.wxss */
+
+.container {
+  background-color: lightgray;
+  display: flex;
+  flex-direction: column;
+  margin-top: 60px;
+}
+

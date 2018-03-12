@@ -2,7 +2,7 @@
 Page({
   /** 页面的初始数据 */
   data: {
-    item: {},
+    item: null,  // 使用null，而不是{}，{}是对象中没有属性，占用着内存，两个{}必定不相等，内存空间不同
     titleValue: '',
     contentValue: '',
     timeValue: ''
@@ -26,10 +26,10 @@ Page({
   },
   
   done: function (e) {
-    // if (this.data.item != {}) {
-    //   wx.navigateBack()
-    //   return
-    // } 
+    if (this.data.item != null) {
+      wx.navigateBack()
+      return
+    } 
 
     var titleValue = this.data.titleValue
     var contentValue = this.data.contentValue
