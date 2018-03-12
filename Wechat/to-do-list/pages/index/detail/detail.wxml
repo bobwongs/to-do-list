@@ -2,18 +2,18 @@
 <view class='container'>
   <view class='title-container'>
     <view class='title'>标题</view>
-    <input class='title-input' placeholder='输入标题' value='{{titleValue}}' bindinput='bindTitleInput'></input>
+    <input class='input' placeholder='输入标题' value='{{titleValue}}' bindinput='bindTitleInput'></input>
   </view>
   <view>
     <view class='content-container'>
       <view class='content'>内容</view>
-      <input class='content-input' placeholder='输入内容' value='{{contentValue}}' bindinput='bindContentInput'></input>
+      <input class='input' placeholder='输入内容' value='{{contentValue}}' bindinput='bindContentInput'></input>
     </view>
   </view>
   <view>
     <view class='time-container'>
       <view class='time'>提醒时间</view>
-      <input class='time-input' placeholder='输入提醒时间' value='{{timeValue}}' bindinput='bindTimeInput'></input>
+      <input class='input' placeholder='输入提醒时间' value='{{timeValue}}' bindinput='bindTimeInput'></input>
     </view>
   </view>
 </view>

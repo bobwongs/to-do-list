@@ -1,9 +1,37 @@
 /* pages/index/detail/detail.wxss */
 
 .container {
-  background-color: lightgray;
+  /* background-color: lightgray; */
   display: flex;
   flex-direction: column;
   margin-top: 60px;
+  margin-left: 20px;
+  margin-right: 20px;
 }
 
+.title-container {
+  /* background-color: lightcyan; */
+}
+
+.title {
+  font-size: 17px;
+}
+
+.input {
+  margin-top: 8px;
+  height: 30px;
+}
+
+.content-container {
+  /* background-color: lightcyan; */
+  margin-top: 15px;
+}
+
+.time-container {
+  /* background-color: lightcyan; */
+  margin-top: 15px;
+}
+
+.done-button {
+  margin-top: 30px;
+}
