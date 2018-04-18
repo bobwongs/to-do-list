@@ -1,8 +1,9 @@
 {
   "pages": [
-    "pages/index/index",
-    "pages/me/index",
-    "pages/index/detail/detail"
+    "pages/list/index/index",
+    "pages/list/detail/index",
+    "pages/me/index/index",
+    "pages/login/index/index"
   ],
   "window": {
     "backgroundTextStyle": "light",
@@ -13,11 +14,11 @@
   "tabBar": {
     "list": [
       {
-        "pagePath": "pages/index/index",
+        "pagePath": "pages/list/index/index",
         "text": "待办事项"
       },
       {
-        "pagePath": "pages/me/index",
+        "pagePath": "pages/me/index/index",
         "text": "我"
       }
     ]

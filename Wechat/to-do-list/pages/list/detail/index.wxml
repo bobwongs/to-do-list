@@ -1,4 +1,4 @@
-<!--pages/index/detail/detail.wxml-->
+<!--pages/index/detail/index.wxml-->
 <view class='container'>
   <view class='title-container'>
     <view class='title'>标题</view>

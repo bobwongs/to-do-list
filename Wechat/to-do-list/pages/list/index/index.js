@@ -4,19 +4,6 @@ const app = getApp()
 
 Page({
   data: {
-    // array: [{
-    //   title: 'first-title',
-    //   content: 'one-content',
-    //   time: 'time0'
-    // }, {
-    //     title: 'second-title',
-    //     content: 'two-content',
-    //     time: 'time1'
-    // }, {
-    //     title: 'third-title',
-    //     content: 'three-content',
-    //     time: 'time2'
-    // }],
     array: [],
     toDoArray: [],
     searchResultArray: [],
@@ -64,7 +51,7 @@ Page({
   add: function(e) {
     console.log('Add item')
     wx.navigateTo({
-      url: 'detail/detail',
+      url: '/pages/list/detail/index',
     })
   },
   bindSearchInput: function(e) {
@@ -102,7 +89,7 @@ Page({
     var item = this.data.array[index]
     var itemJSONString = JSON.stringify(item)
     wx.navigateTo({
-      url: 'detail/detail?itemJSONString=' + itemJSONString
+      url: '/pages/list/detail/index?itemJSONString=' + itemJSONString
     })
   },
 

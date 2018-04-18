@@ -17,4 +17,4 @@
   
 </view>
 
-<import src="../template/index-template"/>
+<import src="../../../template/index-template"/>

@@ -1,5 +1,5 @@
 /**index.wxss**/
-@import "../template/index-template.wxss"; 
+@import "../../../template/index-template.wxss"; 
 
 .container {
   height: 100%;

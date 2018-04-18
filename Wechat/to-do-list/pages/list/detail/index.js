@@ -1,4 +1,4 @@
-// pages/index/detail/detail.js
+// pages/index/detail/index.js
 Page({
   /** 页面的初始数据 */
   data: {
