@@ -1,0 +1,68 @@
+.container {
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+}
+
+.header {
+    height: 64px;
+    background-color: #2A282E;
+    color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-weight: bold;
+    font-size: 17px;
+    position: fixed;
+    left: 0;
+    right: 0;
+    top: 0;
+}
+
+.main-view {
+    background-color: white;
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 64px;
+    bottom: 0;
+    padding: 60px 20px 44px 20px;
+}
+
+.title {
+    color: black;
+    font-size: 17px;
+}
+
+.title-input {
+    margin-top: 8px;
+    font-size: 16px;
+    width: 100%;
+}
+
+.content {
+    margin-top: 15px;
+    color: black;
+    font-size: 17px;
+}
+
+.content-input {
+    margin-top: 8px;
+    font-size: 16px;
+    width: 100%;
+}
+
+.confirm-button {
+    position: fixed;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    height: 44px;
+    color: white;
+    font-size: 21px;
+    font-weight: bold;
+    width: 100%;
+    background-color: #2CB5FA;
+}
