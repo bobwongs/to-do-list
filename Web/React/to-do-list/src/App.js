@@ -1,90 +1,32 @@
-import React, { Component } from 'react';
-import logo from './logo.svg';
-import './App.css';
-import ToDoItem from './modules/ToDoItem'
-import { BrowserRouter as Router, Route, Link, Switch } from 'react-router-dom'
+import React, { Component } from 'react'
+import './App.css'
+import { BrowserRouter, Route, Link, Switch } from 'react-router-dom'
+import { createStore } from 'redux'
+import { Provider } from 'react-redux'
+
+import ToDoList from './modules/to-do-list/ToDoList'
+import ToDoItem from './modules/to-do-item/ToDoItem'
+import About from './modules/about/About'
+
+import todos from './reducers/todos'
+
+const myStore = createStore(todos)
 
 class App extends Component {
-  constructor() {
-    super()
-    let toDoList = localStorage.toDoList
-    this.state = { list: toDoList ? JSON.parse(toDoList) : [], inputedText: '' }
-  }
-
-  onInputedTextChange = (e) => {
-    let value = e.target.value
-    this.setState({ inputedText: value })
-  }
-
-  addItem = () => {
-    let inputedText = this.state.inputedText
-    if (!inputedText.length) return
-
-    let list = this.state.list, newItem = {title: inputedText, content: (new Date().toLocaleString()) }
-    list.push(newItem)
-    this.setState({ 'list': list, inputedText: '' })
-
-    this.saveList(list)
-  }
-
-  pressEnterKey = (e) => {
-    if(e.key == 'Enter') {
-      this.addItem()
-    }
-  }
-
-  deleteItem = (index) => {
-    let list = this.state.list
-    list.splice(index, 1)
-    this.setState({ 'list': list })
-
-    this.saveList(list)
-  }
-
-  saveList = (list) => {
-    localStorage.toDoList = JSON.stringify(list)
-  }
-
-  testAction = () => {
-    console.log('test');
-  }
-
-  render() {
-    let listItems = this.state.list.map((item, index) => {
-      let listItem = (
-      <li className='to-do-item'>
-        <div className='item-left'>
-          <div className='item-title'>{item.title} </div>
-          <div className='item-content'>{item.content}</div>
-        </div>
-        <div className='item-delete' type='button' onClick={(e) => this.deleteItem(index)}>Delete</div>
-      </li>
-      )
-      return listItem
-    }  
-  )
-
+  render() {    
     return (
-      <div>
-        <Router>
+      // <div>
+        <BrowserRouter>
           <Switch>
-            <Route path='/to-do-item' component={ToDoItem}></Route>
-            <div className='container'>
-              <div className='header'>待办事项</div>
-              <div className='input-view'>
-                <input className='input-field' type='text' value={this.state.inputedText} onChange={this.onInputedTextChange} placeholder='Input to do item here' onKeyPress={this.pressEnterKey} />
-                <button className='add-button' type='button' onClick={this.addItem}>Add</button>
-                <div className='input-view-bg'></div>
-              </div>
-              <div className='to-do-list'>{listItems}</div>
-              {/* <button className='test-button' onClick={this.testAction}>Test</button> */}
-              <Link to='/to-do-item'>
-                <button className='test-button'>Test</button>
-              </Link>
-            </div>
+            <Provider store={myStore}>
+              <Route exact path="/" component={ToDoList} />
+              {/* <Route exact path="/" component={ToDoItem} /> */}
+              <Route path='/to-do-item' component={ToDoItem} />
+              <Route path='/about' component={About} />
+            </Provider>
           </Switch>
-        </Router>
-      </div>
+        </BrowserRouter>
+      // </div>
     )
   }
 }
