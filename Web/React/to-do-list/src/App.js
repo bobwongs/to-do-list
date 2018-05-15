@@ -15,18 +15,16 @@ const myStore = createStore(todos)
 class App extends Component {
   render() {    
     return (
-      // <div>
+      <div>
         <BrowserRouter>
           <Switch>
-            <Provider store={myStore}>
-              <Route exact path="/" component={ToDoList} />
-              {/* <Route exact path="/" component={ToDoItem} /> */}
-              <Route path='/to-do-item' component={ToDoItem} />
-              <Route path='/about' component={About} />
-            </Provider>
+            <Route exact path="/" component={ToDoList} />
+            {/* <Route exact path="/" component={ToDoItem} /> */}
+            <Route path='/to-do-item' component={ToDoItem} />
+            <Route path='/about' component={About} />
           </Switch>
         </BrowserRouter>
-      // </div>
+      </div>
     )
   }
 }
