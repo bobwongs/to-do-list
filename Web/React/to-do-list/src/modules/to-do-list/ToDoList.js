@@ -7,13 +7,14 @@ import PropTypes from 'prop-types'
 import { TodoActions } from '../../actions'
 
 /* 
+-- v1.0.0 -- 
 todo: {
   id: 0;
   title: go hiking;
   completed: false;
 }
 
--- next:
+-- v1.0.1 -- 
 todo: {
   id: 0;
   title: go hiking;
@@ -26,31 +27,28 @@ todo: {
 class ToDoList extends Component {
     constructor(props) {
         super(props)
-        let jsonString = localStorage.toDoListJSONString
-        let toDoList = jsonString ? JSON.parse(jsonString) : []
-        props.updateList(toDoList)
         this.state = { inputedText: '' }
       }
+
+      // 获取当前store的state
+      // static contextTypes = {
+      //   store: PropTypes.object,
+      // }
+      // getStoreState = () => {
+      //   let list = this.context.store.getState()
+      // }
     
       onInputedTextChange = (e) => {
         let value = e.target.value
         this.setState({ inputedText: value })
       }
-    
-      
-      static contextTypes = {
-        store: PropTypes.object,
-    };
 
       addItem = () => {
         let inputedText = this.state.inputedText
         if (!inputedText.length) return
 
-        this.props.addTodo(inputedText)
+        this.props.addItem(inputedText)
         this.setState({ inputedText: '' })
-
-        let newList = this.context.store.getState()
-        this.saveList(newList)
       }
     
       pressEnterKey = (e) => {
@@ -59,16 +57,9 @@ class ToDoList extends Component {
         }
       }
     
-      deleteItem = (index) => {
-        let list = this.state.list
-        list.splice(index, 1)
-        this.setState({ 'list': list })
-    
-        this.saveList(list)
-      }
-    
-      saveList = (list) => {
-        localStorage.toDoListJSONString = JSON.stringify(list)
+      deleteItem = (e, index) => {
+        e.stopPropagation()  // stop event bubbling
+        this.props.deleteItem(index)
       }
 
       search = () => {
@@ -78,20 +69,27 @@ class ToDoList extends Component {
       testAction = () => {
 
       }
+
+      clickListItem = (index) => {
+        // const path = `/repos/${userName}/${repo}`
+        const path = {pathname: '/to-do-item', itemId: index}
+        this.props.history.push(path)
+      }
     
       render() {
         let listItems = this.props.list.map((item, index) => {
           let listItem = (
-          <li className='to-do-item'>
+          <li className='to-do-item' onClick={(e) => this.clickListItem(index)}>
             <div className='item-left'>
               <div className='item-title'>{item.title} </div>
-              <div className='item-content'>{item.completed}</div>
+              <div className='item-content'>{item.completed ? '已完成' : '未完成'}</div>
             </div>
-            <div className='item-delete' type='button' onClick={(e) => this.deleteItem(index)}>Delete</div>
+            <div className='item-delete' type='button' onClick={(e) => this.deleteItem(e, index)}>Delete</div>
           </li>
           )
-          return <Link to={{pathname: '/to-do-item', 'item': item}}>{listItem}</Link>
-        } 
+          // return <Link to={{pathname: '/to-do-item', itemId: index}} key={index}>{listItem}</Link>
+          return listItem
+        }
       )
 
         return (
@@ -119,16 +117,12 @@ class ToDoList extends Component {
 }
 
 const mapStateToProps = (state) => {
-  return {
-    list: state
-  }
+  localStorage.toDoListJSONString = JSON.stringify(state)
+  return {list: state}
 }
 const mapDispatchToProps = dispatch => ({
-  updateList: list => dispatch(TodoActions.updateList(list)),
-  addTodo: text => {
-    let obj = dispatch(TodoActions.addTodo(text))
-    console.log(obj);
-  }
+  addItem: text => dispatch(TodoActions.addItem(text)),
+  deleteItem: id => dispatch(TodoActions.deleteItem(id))
 })
 
 ToDoList = connect(mapStateToProps, mapDispatchToProps)(ToDoList)

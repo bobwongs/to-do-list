@@ -1,9 +1,9 @@
 import { TodoActionType } from '../actions'
 
-const todos = (state = [], action) => {
+const INITIAL_LIST = localStorage.toDoListJSONString ? JSON.parse(localStorage.toDoListJSONString) : []
+
+const todos = (state = INITIAL_LIST, action) => {
     switch (action.type) {
-        case TodoActionType.UPDATE_LIST:
-            return action.list
         case TodoActionType.ADD:
             return [...state, {id: state.length, title: action.title, completed: false}]
         case TodoActionType.EDIT:
