@@ -79,7 +79,7 @@ class ToDoList extends Component {
       render() {
         let listItems = this.props.list.map((item, index) => {
           let listItem = (
-          <li className='to-do-item' onClick={(e) => this.clickListItem(index)}>
+          <li className='to-do-item' onClick={(e) => this.clickListItem(index)} key={index}>
             <div className='item-left'>
               <div className='item-title'>{item.title} </div>
               <div className='item-content'>{item.completed ? '已完成' : '未完成'}</div>
@@ -108,7 +108,7 @@ class ToDoList extends Component {
             </div>
 
             {/* <Link to='/about'> */}
-                <button className='test-button' onClick={this.testAction}>Test</button>
+                {/* <button className='test-button' onClick={this.testAction}>Test</button> */}
             {/* </Link> */}
 
           </div>
