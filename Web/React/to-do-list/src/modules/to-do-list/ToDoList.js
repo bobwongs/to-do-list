@@ -2,6 +2,7 @@ import React, { Component } from 'react'
 import { Link } from 'react-router-dom'
 import './ToDoList.css'
 import { connect } from 'react-redux'
+import PropTypes from 'prop-types'
 
 import { TodoActions } from '../../actions'
 
@@ -25,8 +26,9 @@ todo: {
 class ToDoList extends Component {
     constructor(props) {
         super(props)
-        let toDoList = localStorage.toDoList
-        props.updateList(toDoList && toDoList.length ? toDoList : [])
+        let jsonString = localStorage.toDoListJSONString
+        let toDoList = jsonString ? JSON.parse(jsonString) : []
+        props.updateList(toDoList)
         this.state = { inputedText: '' }
       }
     
@@ -35,21 +37,20 @@ class ToDoList extends Component {
         this.setState({ inputedText: value })
       }
     
+      
+      static contextTypes = {
+        store: PropTypes.object,
+    };
+
       addItem = () => {
         let inputedText = this.state.inputedText
         if (!inputedText.length) return
-    
-        // let list = this.props.list
-        // let newItem = {title: inputedText, content: (new Date().toLocaleString()) }
-        // list.push(newItem)
 
         this.props.addTodo(inputedText)
         this.setState({ inputedText: '' })
-    
-        let newList = this.props.list
-        console.log('newList: ' + newList);
-        
-        // this.saveList(this.props.list)
+
+        let newList = this.context.store.getState()
+        this.saveList(newList)
       }
     
       pressEnterKey = (e) => {
@@ -67,7 +68,7 @@ class ToDoList extends Component {
       }
     
       saveList = (list) => {
-        localStorage.toDoList = JSON.stringify(list)
+        localStorage.toDoListJSONString = JSON.stringify(list)
       }
 
       search = () => {
@@ -117,10 +118,17 @@ class ToDoList extends Component {
       }
 }
 
-const mapStateToProps = (state) => ({list: state})
+const mapStateToProps = (state) => {
+  return {
+    list: state
+  }
+}
 const mapDispatchToProps = dispatch => ({
   updateList: list => dispatch(TodoActions.updateList(list)),
-  addTodo: text => dispatch(TodoActions.addTodo(text))
+  addTodo: text => {
+    let obj = dispatch(TodoActions.addTodo(text))
+    console.log(obj);
+  }
 })
 
 ToDoList = connect(mapStateToProps, mapDispatchToProps)(ToDoList)
