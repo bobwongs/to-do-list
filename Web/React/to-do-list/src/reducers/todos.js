@@ -1,15 +1,9 @@
 import { TodoActionType } from '../actions'
 
-const InitialState = [
-    {
-        id: 0,
-        title: 'go hiking',
-        completed: false
-    }
-]
-
-const todos = (state = InitialState, action) => {
+const todos = (state = [], action) => {
     switch (action.type) {
+        case TodoActionType.UPDATE_LIST:
+            return action.list
         case TodoActionType.ADD:
             return [...state, {id: state.length, title: action.title, completed: false}]
         case TodoActionType.EDIT:

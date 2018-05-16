@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom'
 import './ToDoList.css'
 import { connect } from 'react-redux'
 
-
+import { TodoActions } from '../../actions'
 
 /* 
 todo: {
@@ -23,10 +23,11 @@ todo: {
 */
 
 class ToDoList extends Component {
-    constructor() {
-        super()
-        // let toDoList = localStorage.toDoList
-        // this.state = { list: toDoList ? JSON.parse(toDoList) : [], inputedText: '' }
+    constructor(props) {
+        super(props)
+        let toDoList = localStorage.toDoList
+        props.updateList(toDoList && toDoList.length ? toDoList : [])
+        this.state = { inputedText: '' }
       }
     
       onInputedTextChange = (e) => {
@@ -38,11 +39,17 @@ class ToDoList extends Component {
         let inputedText = this.state.inputedText
         if (!inputedText.length) return
     
-        let list = this.state.list, newItem = {title: inputedText, content: (new Date().toLocaleString()) }
-        list.push(newItem)
-        this.setState({ 'list': list, inputedText: '' })
+        // let list = this.props.list
+        // let newItem = {title: inputedText, content: (new Date().toLocaleString()) }
+        // list.push(newItem)
+
+        this.props.addTodo(inputedText)
+        this.setState({ inputedText: '' })
     
-        this.saveList(list)
+        let newList = this.props.list
+        console.log('newList: ' + newList);
+        
+        // this.saveList(this.props.list)
       }
     
       pressEnterKey = (e) => {
@@ -72,7 +79,7 @@ class ToDoList extends Component {
       }
     
       render() {
-        let listItems = this.props.state.list.map((item, index) => {
+        let listItems = this.props.list.map((item, index) => {
           let listItem = (
           <li className='to-do-item'>
             <div className='item-left'>
@@ -83,7 +90,7 @@ class ToDoList extends Component {
           </li>
           )
           return <Link to={{pathname: '/to-do-item', 'item': item}}>{listItem}</Link>
-        }  
+        } 
       )
 
         return (
@@ -93,9 +100,9 @@ class ToDoList extends Component {
               <div className='input-view'>
                 <input className='input-field' type='text' value={this.state.inputedText} onChange={this.onInputedTextChange} placeholder='Input text to search' onKeyPress={this.pressEnterKey} />
                 <button className='header-button' type='button' onClick={this.search}>Search</button>
-                <Link to='/to-do-item'>
+                {/* <Link to='/to-do-item'> */}
                   <button className='header-button' type='button' onClick={this.addItem}>Add</button>
-                </Link>
+                {/* </Link> */}
                 <div className='input-view-bg'></div>
               </div>
               <div className='to-do-list'>{listItems}</div>
@@ -110,6 +117,11 @@ class ToDoList extends Component {
       }
 }
 
-const mapStateToProps = (state) => {state}
-ToDoList = connect(mapStateToProps)(ToDoList)
+const mapStateToProps = (state) => ({list: state})
+const mapDispatchToProps = dispatch => ({
+  updateList: list => dispatch(TodoActions.updateList(list)),
+  addTodo: text => dispatch(TodoActions.addTodo(text))
+})
+
+ToDoList = connect(mapStateToProps, mapDispatchToProps)(ToDoList)
 export default ToDoList

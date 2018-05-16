@@ -10,20 +10,21 @@ import About from './modules/about/About'
 
 import todos from './reducers/todos'
 
-const myStore = createStore(todos)
+const store = createStore(todos)
 
 class App extends Component {
   render() {    
     return (
       <div>
-        <BrowserRouter>
-          <Switch>
-            <Route exact path="/" component={ToDoList} />
-            {/* <Route exact path="/" component={ToDoItem} /> */}
-            <Route path='/to-do-item' component={ToDoItem} />
-            <Route path='/about' component={About} />
-          </Switch>
-        </BrowserRouter>
+        <Provider store={store}>
+          <BrowserRouter>
+            <Switch>
+              <Route exact path="/" component={ToDoList} />
+              <Route path='/to-do-item' component={ToDoItem} />
+              <Route path='/about' component={About} />
+            </Switch>
+          </BrowserRouter>
+        </Provider>
       </div>
     )
   }
