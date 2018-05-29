@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import './App.css'
-import { BrowserRouter, Route, Link, Switch } from 'react-router-dom'
+import { BrowserRouter, Route, Switch, HashRouter } from 'react-router-dom'
 import { createStore } from 'redux'
 import { Provider } from 'react-redux'
 
@@ -13,17 +13,17 @@ import todos from './reducers/todos'
 const store = createStore(todos)
 
 class App extends Component {
-  render() {    
+  render() {
     return (
       <div>
         <Provider store={store}>
-          <BrowserRouter>
-            <Switch>
-              <Route exact path="/" component={ToDoList} />
-              <Route path='/to-do-item' component={ToDoItem} />
-              <Route path='/about' component={About} />
-            </Switch>
-          </BrowserRouter>
+        <HashRouter>
+          <Switch>
+            <Route exact path="/" component={ToDoList} />
+            <Route path='/to-do-item' component={ToDoItem} />
+            <Route path='/about' component={About} />
+          </Switch>
+        </HashRouter>
         </Provider>
       </div>
     )

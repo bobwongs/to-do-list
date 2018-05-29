@@ -27,7 +27,7 @@ class ToDoItem extends Component {
   confirm = () => {
     let item = this.state.item
     this.props.editItem(item.itemId, item.title, item.completed)
-    this.props.history.goBack();
+    this.props.history.goBack()
   }
 
   render() {

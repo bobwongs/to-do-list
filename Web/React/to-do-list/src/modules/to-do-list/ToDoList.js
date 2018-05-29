@@ -72,7 +72,7 @@ class ToDoList extends Component {
 
       clickListItem = (index) => {
         // const path = `/repos/${userName}/${repo}`
-        const path = {pathname: '/to-do-item', itemId: index}
+        let path = {pathname: '/to-do-item', itemId: index}
         this.props.history.push(path)
       }
     
