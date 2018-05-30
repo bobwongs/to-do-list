@@ -14,7 +14,6 @@ const todos = (state = INITIAL_LIST, action) => {
                 return todo
             }))
         case TodoActionType.DELETE:
-            return state.slice(0, state.length - 1)
             return state.filter((item) => (item.id !== action.id))
         default: return state;
     }

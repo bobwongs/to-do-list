@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import { Link } from 'react-router-dom'
+// import { Link } from 'react-router-dom'
 import './ToDoList.css'
 import { connect } from 'react-redux'
 import PropTypes from 'prop-types'
@@ -27,43 +27,59 @@ todo: {
 class ToDoList extends Component {
     constructor(props) {
         super(props)
-        this.state = { inputedText: '' }
+        this.state = { inputedText: '', toDoList: props.list }
+
+        // console.log('hi');
+        // let str0 = 'hello'
+        
+        // if (str0.includes('ll')) {
+        //   console.log('contain');
+        // } else {
+        //   console.log('not contain');
+        // }
       }
 
       // 获取当前store的state
-      // static contextTypes = {
-      //   store: PropTypes.object,
-      // }
-      // getStoreState = () => {
-      //   let list = this.context.store.getState()
-      // }
+      static contextTypes = {
+        store: PropTypes.object,
+      }
+      getStoreState = () => {
+        let list = this.context.store.getState()
+        return list
+      }
     
       onInputedTextChange = (e) => {
         let value = e.target.value
         this.setState({ inputedText: value })
+
+        if (!value.length) this.setState({toDoList: this.props.list})
       }
 
       addItem = () => {
-        let inputedText = this.state.inputedText
-        if (!inputedText.length) return
-
-        this.props.addItem(inputedText)
-        this.setState({ inputedText: '' })
+        let path = {pathname: '/to-do-item', itemId: -1}
+        this.props.history.push(path)
       }
     
       pressEnterKey = (e) => {
-        if(e.key == 'Enter') {
-          this.addItem()
+        if(e.key === 'Enter') {
+          this.search()
         }
       }
     
       deleteItem = (e, index) => {
         e.stopPropagation()  // stop event bubbling
         this.props.deleteItem(index)
+        this.setState({ toDoList: this.getStoreState() })
       }
 
       search = () => {
+        let inputedText = this.state.inputedText
+        if (!inputedText.length) return
 
+        let resultList = this.props.list.filter((item) => {
+          return item.title.includes(inputedText)
+        })
+        this.setState({toDoList: resultList})
       }
     
       testAction = () => {
@@ -77,14 +93,14 @@ class ToDoList extends Component {
       }
     
       render() {
-        let listItems = this.props.list.map((item, index) => {
+        let listItems = this.state.toDoList.map((item, index) => {
           let listItem = (
-          <li className='to-do-item' onClick={(e) => this.clickListItem(index)} key={index}>
+          <li className='to-do-item' onClick={(e) => this.clickListItem(item.id)} key={item.id}>
             <div className='item-left'>
               <div className='item-title'>{item.title} </div>
               <div className='item-content'>{item.completed ? '已完成' : '未完成'}</div>
             </div>
-            <div className='item-delete' type='button' onClick={(e) => this.deleteItem(e, index)}>Delete</div>
+            <div className='item-delete' type='button' onClick={(e) => this.deleteItem(e, item.id)}>Delete</div>
           </li>
           )
           // return <Link to={{pathname: '/to-do-item', itemId: index}} key={index}>{listItem}</Link>
@@ -98,7 +114,7 @@ class ToDoList extends Component {
               <div className='header'>待办事项</div>
               <div className='input-view'>
                 <input className='input-field' type='text' value={this.state.inputedText} onChange={this.onInputedTextChange} placeholder='Input text to search' onKeyPress={this.pressEnterKey} />
-                <button className='header-button' type='button' onClick={this.search}>Search</button>
+                {/* <button className='header-button' type='button' onClick={this.search}>Search</button> */}
                 {/* <Link to='/to-do-item'> */}
                   <button className='header-button' type='button' onClick={this.addItem}>Add</button>
                 {/* </Link> */}

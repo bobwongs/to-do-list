@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import './App.css'
-import { BrowserRouter, Route, Switch, HashRouter } from 'react-router-dom'
+import { BrowserRouter, Route, Switch } from 'react-router-dom'
 import { createStore } from 'redux'
 import { Provider } from 'react-redux'
 
@@ -17,13 +17,13 @@ class App extends Component {
     return (
       <div>
         <Provider store={store}>
-        <HashRouter>
+        <BrowserRouter>
           <Switch>
             <Route exact path="/" component={ToDoList} />
             <Route path='/to-do-item' component={ToDoItem} />
             <Route path='/about' component={About} />
           </Switch>
-        </HashRouter>
+        </BrowserRouter>
         </Provider>
       </div>
     )

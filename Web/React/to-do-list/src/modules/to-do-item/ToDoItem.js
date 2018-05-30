@@ -26,12 +26,15 @@ class ToDoItem extends Component {
 
   confirm = () => {
     let item = this.state.item
-    this.props.editItem(item.itemId, item.title, item.completed)
+    if (item.itemId !== -1) {
+      this.props.editItem(item.itemId, item.title, item.completed)
+    } else {
+      this.props.addItem(item.title)
+    }
     this.props.history.goBack()
   }
 
   render() {
-    let item = this.props.item
     return (
       <div className='container'>
         <div className='header'>待办事项</div>
@@ -50,7 +53,9 @@ class ToDoItem extends Component {
   }
 }
 
-const mapStateToProps = (state, ownProps) => ({item: state[ownProps.location.itemId]})
+const mapStateToProps = (state, ownProps) => (
+  ownProps.location.itemId === -1 ? {item: {itemId: -1}} : {item: state[ownProps.location.itemId]}
+)
 const mapDispatchToProps = dispatch => ({
   addItem: (title) => dispatch(TodoActions.addItem(title)),
   deleteItem: (id) => dispatch(TodoActions.deleteItem(id)),
