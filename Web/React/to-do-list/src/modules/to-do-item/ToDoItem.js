@@ -43,7 +43,7 @@ class ToDoItem extends Component {
           <input className='title-input' type='text' value={this.state.item ? this.state.item.title : ''} onChange={this.onTitleChange} placeholder='待办标题' />
           {/* <div className='content'>内容</div>
           <input className='content-input' type='text' value={item ? item.content : ''} onChange={this.onContentChange} placeholder='待办内容' /> */}
-          <div>
+          <div className='completed-view'>
             是否完成<input type="checkbox" onChange={this.onCompletedChange} checked={this.state.item ? this.state.item.completed : false} />
           </div>
           <button className='confirm-button' type='button' onClick={this.confirm}>确  定</button>

@@ -73,8 +73,7 @@
   flex-direction: row;
   align-items: center;
   padding: 12px;
-  background-color: bisque;
-  margin-bottom: 12px;
+  border-bottom: 1px solid gray;
 }
 
 .item-left {
