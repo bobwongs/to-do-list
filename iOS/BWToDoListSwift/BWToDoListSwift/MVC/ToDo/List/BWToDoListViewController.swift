@@ -40,11 +40,14 @@ class BWToDoListViewController: BWBaseViewController, UITableViewDataSource, UIT
     }
     
     @objc func addAction() {
-        let toDoItemVC: BWToDoItemViewController = BWToDoItemViewController()
-        toDoItemVC.hasAdded = { (title) in
+        self.performSegue(withIdentifier: "list_to_detail", sender: nil)
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        let vc: BWToDoItemViewController? = segue.destination as? BWToDoItemViewController
+        vc?.hasAdded = { (title) in
             print(title)
         }
-        self.navigationController?.pushViewController(toDoItemVC, animated: true)
     }
 
 }

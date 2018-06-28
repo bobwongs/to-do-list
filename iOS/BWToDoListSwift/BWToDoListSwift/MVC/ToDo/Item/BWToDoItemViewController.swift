@@ -25,6 +25,7 @@ class BWToDoItemViewController: BWBaseViewController {
         if (title == nil || title!.count == 0) { return }
         
         if self.hasAdded != nil { self.hasAdded!(title!) }
+        self.navigationController?.popViewController(animated: true)
     }
 
 }
